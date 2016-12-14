@@ -8,20 +8,6 @@ Version: 1.001
 Author: Papier Codé
 */
 
-// 13/12/16 : ajout mise à jour slug à la sauvegarde
-// 13/12/16 : modification barre d'admin ( supp. "view-post")
-// 09/12/16 : ajout js et css pour la sélection d'un parent de page
-// 14/09/16 : utilisation de fonctions anonymes
-// 14/09/16 : custom TinyMce pour tous les types de post avec la fonction "editor"
-// 07/09/16 : ajout metabox SEO dans pc-custom-wp-page.php
-// 07/09/16 : suppression fichier SEO
-// 06/09/16 : suppression du node 'view' dans la barre d'admin
-// 26/08/16 : transfert metabox SEO des pages dans un fichier dédié
-// 25/08/16 : renommage metabox SEO des pages
-// 24/08/16 : Suppression du module Articles pour tous les utilisateurs
-// 23/08/16 : Création
-
-
 /**
 *
 * * Include
@@ -44,11 +30,11 @@ Author: Papier Codé
 
 /*----------  php  ----------*/
 
-include 'pc-custom-wp-page.php'; // [admin] customisation du module Pages
-include 'pc-custom-wp-public.php'; // [public] customisations publiques (shortcode,...)
+include 'pc-custom-wp-page.php';                    // [admin] customisation du module Pages
+include 'pc-custom-wp-public.php';                  // [public] customisations publiques (shortcode,...)
 
-include 'pc-custom-wp-settings.php'; // [admin] page d'admin pour de configurations personnalisées de WP (TinyMCE,...)
-$pcSettings = get_option( 'pc-settings-option' ); // cf fichier ci-dessus
+include 'pc-custom-wp-settings.php';                // [admin] page d'admin pour de configurations personnalisées de WP (TinyMCE,...)
+$pcSettings = get_option( 'pc-settings-option' );   // cf fichier ci-dessus
 
 
 /*----------  JS & CSS  ----------*/
@@ -377,6 +363,5 @@ function pc_update_slug( $post_id ) {
 
 
 /*=====  FIN Mise à jour slug à la sauvegarde  ======*/
-
 
 ?>
