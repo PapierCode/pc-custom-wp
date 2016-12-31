@@ -70,5 +70,3 @@ add_action('plugins_loaded', function() {
 
 
 /*=====  FIN SEO  ======*/
-
-?>

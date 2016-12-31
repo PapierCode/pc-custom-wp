@@ -55,5 +55,3 @@ add_filter( 'post_gallery', 'my_gallery_shortcode', 10, 3 );
 
 
 /*=====  End of Gallerie  ======*/
-
-?>

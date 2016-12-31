@@ -290,7 +290,7 @@ add_action( 'admin_init', function() {
 
 add_filter( 'mce_external_plugins', function( $plugins ) {
 
-    $plugins['visualblocks'] = plugin_dir_url( __FILE__ ).'pc-custom-wp-tinymce/visualblocks/plugin.min.js';
+    $plugins['visualblocks'] = plugin_dir_url( __FILE__ ).'tinymce/visualblocks/plugin.min.js';
     return $plugins;
 
 });
@@ -363,5 +363,3 @@ function pc_update_slug( $post_id ) {
 
 
 /*=====  FIN Mise à jour slug à la sauvegarde  ======*/
-
-?>
