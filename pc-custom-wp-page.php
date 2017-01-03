@@ -39,8 +39,11 @@ add_action('plugins_loaded', function() {
 
     if ( class_exists('PC_Add_metabox') ) {
 
+        // Voir page "PC réglages"
+        $pcSettings = get_option( 'pc-settings-option' );
+
         $pageMetaboxSeoContent = array(
-            'desc'          => pc_txt('seoIntro'),
+            'desc'          => $pcSettings['help-seo'],
             'prefix'        => 'seo',
             'fields'        => array(
                 array(
@@ -66,7 +69,6 @@ add_action('plugins_loaded', function() {
 
     }
 
-})
-
+});
 
 /*=====  FIN SEO  ======*/

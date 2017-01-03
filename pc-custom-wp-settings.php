@@ -7,11 +7,6 @@
 *
 **/
 
-// 09/12/16 : ajout config actualités
-// 09/12/16 : ajout config attributs page
-// 12/10/16 : ajout section formulaire de contact
-// 03/10/16 : renommage et déplacement dans le menu
-// 14/09/16 : Création
 
 add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
@@ -31,7 +26,9 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'tinymce-paste'			=> '1',
 
 			'contact-to'			=> 'papiercode@gmail.com',
-			'contact-subject'		=> 'Formulaire de contact'
+			'contact-subject'		=> 'Formulaire de contact',
+			'metas-help'			=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
+			'news-tax-type'			=> 'filtres'
 		);
 
 		add_option( 'pc-settings-option', $optionsValues ,'', 'no');
@@ -156,27 +153,47 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'label'     => 'Sélection d\'un parent'
 		            )
 		        )
-		    )
-		);
-
-		// si plugin "[PC] Actualités & Catégories" activé
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if ( is_plugin_active( 'pc-news-tax/pc-news-tax.php' ) ) {
-
-			$pcSettingsContent[] = array(
+		    ),
+		    array(
+		        'title'     => 'Help',
+		        'id'        => 'help-txt',
+		        'prefix'    => 'help',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'textarea',
+		                'label_for' => 'seo',
+		                'label'     => 'Metas Title & Description',
+		        		'css'		=> 'width:100%;'
+		            )
+		        )
+		    ),
+		    array(
 				'title'     => 'Actualités',
 		        'id'        => 'news-config',
 		        'prefix'    => 'news',
 		        'fields'    => array(
 		            array(
 		                'type'      => 'checkbox',
+		                'label_for' => 'active',
+		                'label'     => 'Actualités'
+		            ),
+		            array(
+		                'type'      => 'checkbox',
 		                'label_for' => 'tax',
-		                'label'     => 'Activer les catégories'
+		                'label'     => 'Catégories'
+		            ),
+		            array(
+		                'type'      => 'radio',
+		                'label_for' => 'tax-type',
+		                'label'     => 'Type de Catégories',
+		                'options'	=> array(
+		                		'Filtres' 	=> 'filtres',
+		                		'Pages'		=> 'pages'
+		                	)
 		            )
 		        )
-			);
-
-		}
+		    )
+		);
 
 		// création de la page
 		$pcSettings = new PC_Add_Admin_Page( 'Papier Codé réglages', '', 'PC Réglages', 'pc-settings', $pcSettingsContent, 'admin', '81', 'dashicons-admin-settings' );

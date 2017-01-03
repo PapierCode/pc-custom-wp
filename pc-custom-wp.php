@@ -24,16 +24,18 @@ Author: Papier Codé
 *
 **/
 
+
 /*===============================
 =            Include            =
 ===============================*/
 
 /*----------  php  ----------*/
 
-include 'pc-custom-wp-page.php';                    // [admin] customisation du module Pages
-include 'pc-custom-wp-public.php';                  // [public] customisations publiques (shortcode,...)
+include 'pc-custom-wp-page.php';                    // customisation de l'admin des pages
+include 'pc-custom-wp-public.php';                  // customisations publiques (shortcode,...)
 
-include 'pc-custom-wp-settings.php';                // [admin] page d'admin pour de configurations personnalisées de WP (TinyMCE,...)
+include 'pc-custom-wp-settings.php';                // page d'admin de réglages projet (ReCaptcha, TinyMCE,...)
+
 $pcSettings = get_option( 'pc-settings-option' );   // cf fichier ci-dessus
 
 
