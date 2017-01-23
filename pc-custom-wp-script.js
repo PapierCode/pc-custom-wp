@@ -20,6 +20,7 @@ $('#post').submit(function(event){
 
 	if ( $title.val() == "" ) {
 
+		event.preventDefault();
 		$title.addClass('pc-field-alert').after('<em class="pc-message pc-message_false">Le titre est obligatoire</em>');
 
 	}
