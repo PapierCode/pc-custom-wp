@@ -76,7 +76,7 @@ add_action( 'admin_enqueue_scripts', function($hook) use( $pcSettings ) {
 =            Divers            =
 ==============================*/
 
-/*----------  masquer les mises à jour pour les non administrateur  ----------*/
+/*----------  Masquer les mises à jour pour les non administrateur  ----------*/
 
 add_action( 'admin_head', function() {
 
@@ -85,7 +85,7 @@ add_action( 'admin_head', function() {
 }, 1 );
 
 
-/*----------  mime/types  ----------*/
+/*----------  Mime/types  ----------*/
 
 add_filter('upload_mimes', function($mimes) {
 
@@ -108,7 +108,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 =            Page de connexion            =
 =========================================*/
 
-/*----------  css  ----------*/
+/*----------  CSS  ----------*/
 
 add_action('login_head', function() {
 
@@ -117,7 +117,7 @@ add_action('login_head', function() {
 });
 
 
-/*----------  logo  ----------*/
+/*----------  Logo  ----------*/
 
 // url du lien contenant le logo
 add_filter( 'login_headerurl', function( $url ) { 
@@ -173,7 +173,7 @@ add_filter( 'admin_footer_text', function() {
 });
 
 
-/*----------  cache version WP  ----------*/
+/*----------  Masquer version WP  ----------*/
 
 add_action( 'admin_menu', function() { 
 		
@@ -188,12 +188,12 @@ add_action( 'admin_menu', function() {
 =            Dashboard            =
 =================================*/
 
-/*----------  supprimer l'écran d'acceuil  ----------*/
+/*----------  Supprimer l'écran d'acceuil  ----------*/
 
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
 
-/*----------  suppression de widgets  ----------*/
+/*----------  Suppression de widgets  ----------*/
 
 add_action( 'wp_dashboard_setup', function() {
 
@@ -209,7 +209,7 @@ add_action( 'wp_dashboard_setup', function() {
 });
 
 
-/*----------  Box personnalisée d'accueil  ----------*/
+/*----------  Boxes personnalisée d'accueil  ----------*/
 
 add_action( 'wp_dashboard_setup', function() {
 
@@ -233,7 +233,7 @@ add_action( 'wp_dashboard_setup', function() {
 =            Menu admin            =
 ==================================*/
 
-/*----------  simplification pour les non administrateurs  ----------*/
+/*----------  Simplification pour les non administrateurs  ----------*/
 
 add_action( 'admin_menu', function(){
 
@@ -252,7 +252,6 @@ add_action( 'admin_menu', function(){
     if ( !current_user_can('update_core') ) {
 
 	    remove_menu_page( 'tools.php' ); 	// outils
-	    remove_menu_page( 'plugins.php' );	// plugins
 
 	    // voir aussi ci-dessous "ajout de droits aux éditeurs"
         unset($submenu['themes.php'][5]); 	// gestion des thèmes
@@ -269,7 +268,7 @@ add_action( 'admin_menu', function(){
 });
 
 
-/*----------  ajout de droits aux éditeurs  ----------*/
+/*----------  Ajout de droits aux éditeurs  ----------*/
 
 add_action( 'admin_init', function() {
 
@@ -288,7 +287,7 @@ add_action( 'admin_init', function() {
 =            TinyMCE            =
 ===============================*/
 
-/*----------  plugin TinyMCE pour afficher les blocs dans le contenu  ----------*/
+/*----------  Plugin TinyMCE pour afficher les blocs dans le contenu  ----------*/
 
 add_filter( 'mce_external_plugins', function( $plugins ) {
 
@@ -298,7 +297,7 @@ add_filter( 'mce_external_plugins', function( $plugins ) {
 });
 
 
-/*----------  feuille de style  ----------*/
+/*----------  Feuille de style  ----------*/
 
 add_action( 'admin_init', function() {
 
@@ -307,7 +306,7 @@ add_action( 'admin_init', function() {
 });
 
 
-/*----------  custom functions  ----------*/
+/*----------  Boutons personnalisés  ----------*/
 
 add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
@@ -319,7 +318,6 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 	    // echo '</pre>';
 	    // exit();
 
-        // customize the buttons
         $settings['toolbar1']                     = $pcSettings['tinymce-toolbar1'];
         $settings['toolbar2']                     = $pcSettings['tinymce-toolbar2'];
         $settings['block_formats']                = $pcSettings['tinymce-block'];
