@@ -51,7 +51,7 @@ add_action('plugins_loaded', function() {
                     'label' => 'Titre',
                     'desc'  => '',
                     'id'    => 'meta-title',
-                    'attr'  => 'class="pc-counter" data-max-length="70" data-counter-type="signs"',
+                    'attr'  => 'class="pc-counter" data-counter-max="70"',
                     'css'   => 'width:100%'
                 ),
                 array(
@@ -59,7 +59,7 @@ add_action('plugins_loaded', function() {
                     'label' => 'Description',
                     'desc'  => '',
                     'id'    => 'meta-desc',
-                    'attr'  => 'class="pc-counter" data-max-length="200" data-counter-type="signs"',
+                    'attr'  => 'class="pc-counter" data-counter-max="200"',
                     'css'   => 'width:100%'
                 )
             )
