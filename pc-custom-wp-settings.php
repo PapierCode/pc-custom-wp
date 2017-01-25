@@ -19,7 +19,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'tinymce-media'			=> '1',
 			'tinymce-quicktags'		=> '1',
 			'tinymce-rows'			=> '6',
-			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,alignright,outdent,indent,|,link,unlink',
+			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,alignright,outdent,indent,|,link,unlink,|,media',
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 			'tinymce-visualblocks'	=> '1',
