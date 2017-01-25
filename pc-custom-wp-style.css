@@ -100,7 +100,8 @@ table.form-table + p.submit {
 	text-align: center;
 }
 
-/*----------  gallery preview  ----------*/
+
+/*----------  WYSIWYG gallery preview  ----------*/
 
 .mce-visualblocks .wpview,
 .mce-visualblocks .gallery {
@@ -124,6 +125,18 @@ table.form-table + p.submit {
 }
 .mce-visualblocks .gallery * {
 	display:none;
+}
+
+
+/*----------  WYSIWYG ancre  ----------*/
+
+#tinymce [id]:before {
+	display:inline-block;
+	content:attr(id);
+	margin-right:5px;
+	padding: 0 5px;
+	background-color: #666;
+	color:#fff;
 }
 
 

@@ -292,6 +292,7 @@ add_action( 'admin_init', function() {
 add_filter( 'mce_external_plugins', function( $plugins ) {
 
     $plugins['visualblocks'] = plugin_dir_url( __FILE__ ).'tinymce/visualblocks/plugin.min.js';
+    $plugins['pcanchor'] = plugin_dir_url( __FILE__ ).'tinymce/pc-plugin_anchor/pc-plugin_anchor.js';
     return $plugins;
 
 });
