@@ -130,7 +130,13 @@ table.form-table + p.submit {
 
 /*----------  WYSIWYG ancre  ----------*/
 
-#tinymce [id]:before {
+#tinymce h2[id]:before,
+#tinymce h3[id]:before,
+#tinymce ul[id]:before,
+#tinymce li[id]:before,
+#tinymce ol[id]:before,
+#tinymce blockquote[id]:before,
+#tinymce p[id]:before {
 	display:inline-block;
 	content:attr(id);
 	margin-right:5px;
