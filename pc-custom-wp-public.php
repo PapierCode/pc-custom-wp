@@ -37,11 +37,12 @@ add_filter( 'post_gallery', 'my_gallery_shortcode', 10, 3 );
 
             foreach ( $imgIdList as $imgId ) {       
                 
-                $imgThumbnail = wp_get_attachment_image_src( $imgId, 'thumbnail' );
+                $imgDatas = wp_prepare_attachment_for_js($imgId); // mais ne retourne pas les tailles personnalisées ! 
+                $thumbnailDatas = wp_get_attachment_image_src($imgId,'gallerythumbnail');
 
                 $return .= '<li class="wp-gallery-item">';
-                $return .= '<a class="wp-gallery-link" href="'.wp_get_attachment_image_src( $imgId, 'large' )[0].'">';
-                $return .= '<img class="wp-gallery-img" src="'.$imgThumbnail[0].'" width="'.$imgThumbnail[1].'" height="'.$imgThumbnail[2].'" alt=""/>';
+                $return .= '<a class="wp-gallery-link" href="'.$imgDatas['sizes']['large']['url'].'" data-lg-caption="'.$imgDatas['caption'].'" data-lg-responsive="'.$imgDatas['sizes']['medium']['url'].'" title="Afficher l\'image">';
+                $return .= '<img class="wp-gallery-img" src="'.$thumbnailDatas[0].'" width="'.$thumbnailDatas[1].'" height="'.$thumbnailDatas[2].'" alt="'.$imgDatas['alt'].'"/>';
                 $return .= '</a>';
                 $return .= '</li>';
 
