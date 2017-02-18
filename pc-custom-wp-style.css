@@ -88,6 +88,8 @@ a[href*="customize.php"] { display:none; }
 
 { display:none !important; }
 
+/* medias */
+.media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
 
 /*----------  page de config  ----------*/
 
