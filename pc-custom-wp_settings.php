@@ -2,8 +2,7 @@
 
 /**
 *
-* * Réglages Papier Codé
-*
+* Réglages Papier Codé (page d'administration)
 *
 **/
 

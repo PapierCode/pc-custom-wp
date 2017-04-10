@@ -1,7 +1,6 @@
 /**
 *
-* * Champs obligatoires
-*
+* Champs obligatoires
 *
 **/
 
@@ -28,6 +27,6 @@ $('#post').submit(function(event){
 })
 
 
-/*=====  End of Champs obligatoires  ======*/
+/*=====  FIN Champs obligatoires  ======*/
 
 });

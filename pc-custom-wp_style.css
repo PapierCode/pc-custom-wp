@@ -1,9 +1,9 @@
 /**
 *
-* * Divers
-* * Page de connexion
-* * Alertes
-* * Custom admin
+* Divers
+* Page de connexion
+* Alertes
+* Custom admin
 *
 *
 **/
@@ -27,7 +27,7 @@ a[href*="customize.php"] { display:none; }
 }
 
 
-/*=====  End of Divers  ======*/
+/*=====  FIN Divers  ======*/
 
 /*=========================================
 =            Page de connexion            =
@@ -42,7 +42,7 @@ a[href*="customize.php"] { display:none; }
 }
 
 
-/*=====  End of Page de connexion  ======*/
+/*=====  FIN Page de connexion  ======*/
 
 
 /*===============================
@@ -54,7 +54,7 @@ a[href*="customize.php"] { display:none; }
 .pc-field-alert { border:1px solid red !important; }
 
 
-/*=====  End of Alertes  ======*/
+/*=====  FIN Alertes  ======*/
 
 /*====================================
 =            Custom admin            =
@@ -67,7 +67,6 @@ a[href*="customize.php"] { display:none; }
 .post-new-php .taxonomy-add-new, .post-php .taxonomy-add-new, /* metabox catégorie, lien pour ajouter */
 .post-new-php .columns-prefs, .post-php .columns-prefs, /* options d'écran, nombre de colonnes */
 .post-new-php .editor-expand, .post-php .editor-expand, /* options d'écran, réglages supplémentaires */
-#pageparentdiv .inside :nth-child(n+5), /* metabox attributs, ordre */
 #edit-slug-buttons, /* btn modification slug */
 /* catégories */
 .edit-tags-php .term-parent-wrap, .term-php .term-parent-wrap, /* sélection parent */
@@ -148,4 +147,4 @@ table.form-table + p.submit {
 }
 
 
-/*=====  End of Custom admin  ======*/
+/*=====  FIN Custom admin  ======*/
