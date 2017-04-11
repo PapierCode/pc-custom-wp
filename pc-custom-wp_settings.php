@@ -191,6 +191,18 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                	)
 		            )
 		        )
+		    ),
+		    array(
+				'title'     => 'SEO',
+		        'id'        => 'seo-config',
+		        'prefix'    => 'seo',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'rewrite-url',
+		                'label'     => 'Réécriture des URL'
+		            )
+		        )
 		    )
 		);
 

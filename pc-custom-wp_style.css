@@ -21,11 +21,34 @@ a[href*="customize.php"] { display:none; }
 /*----------  image preview (custom field)  ----------*/
 
 .pc-media-preview {
-	display: block;
-	max-width: 300px;
-	margin-bottom:10px;
+	display:flex;
+	flex-wrap: wrap;
+	margin:0 0 5px 0;
 }
-
+.pc-media-preview-item {
+	margin:0 5px 5px 0;
+	background-color: #fff;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:contain;
+	border:5px solid #fff;
+}
+.postbox .pc-media-preview-item {
+	background-color: #F1F1F1;
+	border:5px solid #F1F1F1;
+}
+.pc-pdf-preview {
+	display: inline-block;
+	text-decoration: none;
+	margin-bottom:5px;
+	background-color: #fff;
+	padding:5px 15px 5px 10px;
+}
+.pc-media-remove {
+	margin-left:5px!important;
+}
 
 /*=====  FIN Divers  ======*/
 
@@ -67,7 +90,7 @@ a[href*="customize.php"] { display:none; }
 .post-new-php .taxonomy-add-new, .post-php .taxonomy-add-new, /* metabox catégorie, lien pour ajouter */
 .post-new-php .columns-prefs, .post-php .columns-prefs, /* options d'écran, nombre de colonnes */
 .post-new-php .editor-expand, .post-php .editor-expand, /* options d'écran, réglages supplémentaires */
-#edit-slug-buttons, /* btn modification slug */
+.no-url-rewriting #edit-slug-buttons, /* btn modification slug si désactivé */
 /* catégories */
 .edit-tags-php .term-parent-wrap, .term-php .term-parent-wrap, /* sélection parent */
 .edit-tags-php .term-description-wrap, .term-php .term-description-wrap, /* description */

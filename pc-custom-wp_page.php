@@ -22,9 +22,11 @@ add_action( 'init', function() {
 });
 
 
-add_action( 'admin_menu', function () {
+add_action( 'admin_menu', function () use($pcSettings) {
         
-    remove_meta_box( 'slugdiv', array('page'), 'normal' );          // identifiant   
+    if ( !isset($pcSettings['seo-rewrite-url']) ) {
+        remove_meta_box( 'slugdiv', array('page'), 'normal' );      // identifiant   
+    }
     remove_meta_box( 'pageparentdiv', array('page'), 'normal' );    // attributs   
 
 });
@@ -58,8 +60,6 @@ function pc_metabox_attributes($post, $datas) {
     $currentId = $post->ID;
 
     /*----------  Parent  ----------*/
-
-    // pas affiché si déjà parent !!!!
 
     if( isset($datas['args']['page-parent']) ) {
         

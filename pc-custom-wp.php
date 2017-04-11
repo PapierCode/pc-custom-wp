@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public 
-Version: 0.3.0
+Version: 0.3.1
 Author: Papier Codé
 */
 
@@ -58,6 +58,18 @@ include 'pc-custom-wp_menu.php';
 include 'pc-custom-wp_page.php';
 // Tiny MCE
 include 'pc-custom-wp_tinymce.php';
+
+
+/*----------  Admin body class  ----------*/
+
+add_filter( 'admin_body_class', function($classes) use ($pcSettings) { 
+
+    if ( !isset($pcSettings['seo-rewrite-url']) ) { $classes .= ' no-url-rewriting'; }
+
+    return $classes; 
+
+}); 
+
 
 /*=====  FIN Include  ======*/
 
@@ -141,27 +153,31 @@ add_action( 'admin_menu', function() {
 
 // https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
 
-add_action( 'save_post', 'pc_update_slug' );
+if ( !isset($pcSettings['seo-rewrite-url']) ) {
 
-    function pc_update_slug( $post_id ) {
+    add_action( 'save_post', 'pc_update_slug' );
 
-        // si ce n'est pas une révision
-        if ( ! wp_is_post_revision( $post_id ) ) {
+        function pc_update_slug( $post_id ) {
 
-            // prévention contre une boucle infinie 1/2
-            remove_action( 'save_post', 'pc_update_slug' );
+            // si ce n'est pas une révision
+            if ( ! wp_is_post_revision( $post_id ) ) {
 
-            // mise à jour slug
-            wp_update_post( array(
-                'ID' => $post_id,
-                'post_name' => sanitize_title(get_the_title($post_id))
-            ));
+                // prévention contre une boucle infinie 1/2
+                remove_action( 'save_post', 'pc_update_slug' );
 
-            // prévention contre une boucle infinie 2/2
-            add_action( 'save_post', 'pc_update_slug' );
+                // mise à jour slug
+                wp_update_post( array(
+                    'ID' => $post_id,
+                    'post_name' => sanitize_title(get_the_title($post_id))
+                ));
 
+                // prévention contre une boucle infinie 2/2
+                add_action( 'save_post', 'pc_update_slug' );
+
+            }
         }
-    }
+
+}
 
 
 /*=====  FIN Mise à jour slug à la sauvegarde  ======*/
@@ -183,4 +199,3 @@ add_filter( 'page_row_actions', 'pc_remove_quick_link', 10, 2 );
     }
 
 /*=====  FIN Modification Rapide  ======*/
-
