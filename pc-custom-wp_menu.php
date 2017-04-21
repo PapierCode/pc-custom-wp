@@ -62,3 +62,18 @@ add_action( 'admin_init', function() {
 
 
 /*=====  FIN Ajout de droits  ======*/
+
+/*======================================================================================
+=            Metaboxes liées aux Articles dans la page de gestion des menus            =
+======================================================================================*/
+
+add_action( 'admin_head-nav-menus.php' , function() {
+	
+	remove_meta_box( 'add-category' , 'nav-menus' , 'side' );
+	remove_meta_box( 'add-post_tag' , 'nav-menus' , 'side' );
+	remove_meta_box( 'add-post-type-post' , 'nav-menus' , 'side' );
+
+});
+
+
+/*=====  FIN Metaboxes liées aux Articles dans la page de gestion des menus  ======*/

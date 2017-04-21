@@ -97,9 +97,6 @@ a[href*="customize.php"] { display:none; }
 /* menus */
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),  /* Afficher description et XFN */
 .nav-menus-php .auto-add-pages, /* Ajoutez automatiquement des pages */
-.nav-menus-php label[for*="add-post-type-post-hide"], .nav-menus-php #add-post-type-post, /* box articles */
-.nav-menus-php label[for*="add-category-hide"], .nav-menus-php label[for*="add-newscategories-hide"], /* sélecteur box catégories */
-.nav-menus-php label[for*="add-post_tag-hide"], .nav-menus-php #add-post_tag, /* box étiquettes */
 /* medias */
 .upload-php .view-switch .view-list, /* btn vue en liste */
 .media-modal .gallery-settings, /* options gallery (sidebar) */
