@@ -50,7 +50,7 @@ add_action( 'wp_dashboard_setup', function() {
 
 	function welcome_widget_content() {
 
-	    echo 'Bienvenue dans l\'administration du site '.get_bloginfo('name').'.';
+	    echo 'Bienvenue dans l\'administration du site <strong>'.get_bloginfo('name').'</strong>.';
 
 	}
 
