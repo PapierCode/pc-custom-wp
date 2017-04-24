@@ -24,10 +24,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'tinymce-visualblocks'	=> '1',
 			'tinymce-paste'			=> '1',
 
-			'contact-to'			=> 'papiercode@gmail.com',
-			'contact-subject'		=> 'Formulaire de contact',
 			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
-			'news-tax-type'			=> 'filtres'
 		);
 
 		add_option( 'pc-settings-option', $optionsValues ,'', 'no');
@@ -40,26 +37,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 	if ( class_exists('PC_Add_Admin_Page') ) {
 
 		$pcSettingsContent = array(
-		    array(
-		        'title'     => 'Formulaire de contact',
-		        'id'        => 'contact-form',
-		        'prefix'    => 'contact',
-		        'fields'    => array(
-		            array(
-		                'type'      => 'text',
-		                'label_for' => 'to',
-		                'label'     => 'Destinataire',
-		                'css'		=> 'width:100%',
-		                'help'		=> 'Un ou plusieurs emails séparés par des virgules.'
-		            ),
-		            array(
-		                'type'      => 'text',
-		                'label_for' => 'subject',
-		                'label'     => 'Sujet',
-		                'css'		=> 'width:100%'
-		            )
-		        )
-		    ),
 		    array(
 		        'title'     => 'TinyMCE',
 		        'id'        => 'wp-config-tinymce',
