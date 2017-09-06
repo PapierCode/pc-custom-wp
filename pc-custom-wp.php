@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public 
-Version: 0.4.0
+Version: 0.4.1
 Author: Papier Codé
 */
 
@@ -101,6 +101,13 @@ add_action( 'admin_head', function() {
 /*----------  Désactiver l'éditeur de code  ----------*/
 
 define( 'DISALLOW_FILE_EDIT', true );
+
+
+/*----------  Ajout de média  ----------*/
+
+// supprime les liens pour créer une playlist audio et vidéo
+add_filter( 'media_library_show_video_playlist', function () { return false; } );
+add_filter( 'media_library_show_audio_playlist', function () { return false; } );
 
 
 /*=====  FIN Divers  ======*/

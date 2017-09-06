@@ -83,6 +83,48 @@ a[href*="customize.php"] { display:none; }
 =            Custom admin            =
 ====================================*/
 
+/*----------  Medias page  ----------*/
+
+.upload-php .view-switch a, /* changement de vue */
+.upload-php .media-toolbar-secondary select /* filtres */ 
+{ display:none !important; }
+
+.upload-php .media-toolbar-secondary button /* selection */
+{ margin: 12px 0 !important; } 
+
+
+/*----------  Medias modal ajout  ----------*/
+
+.media-modal label[data-setting="title"], /* champ titre */
+.media-modal label[data-setting="description"], /* champ description */
+.media-modal .settings label:nth-child(7), /* lien mise en ligne sur */
+.media-modal .actions a, /* liens vers la page du fichier joint & plus de détails */
+.media-modal .media-menu .separator, /* séparateurs dans le menu */
+.media-modal .media-menu .separator:last-of-type + a, /* lien insérer à partir d’une adresse web */
+.media-modal .gallery-settings, /* options gallerie */
+.media-modal .attachment-display-settings h2, /* titre réglages */
+.media-modal .attachment-display-settings .align, /* select alignement */
+.media-modal .attachment-display-settings div.setting /* select lié à */
+{ display:none !important; }
+
+.media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
+
+
+/*----------  Medias modal modifications  ----------*/
+
+.media-modal .column-settings .align,
+.media-modal .column-settings .link-to,
+.media-modal .column-settings .advanced-section
+{ display:none !important; }
+
+
+/*----------  Editeur popup  ----------*/
+
+.mce-panel [aria-label*="Align"],
+.mce-panel [aria-label="No alignment"]
+{ display:none !important; }
+
+
 /*----------  Suppression diverses  ----------*/
 
 /* post & page */
@@ -96,19 +138,10 @@ a[href*="customize.php"] { display:none; }
 .edit-tags-php .term-description-wrap, .term-php .term-description-wrap, /* description */
 /* menus */
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),  /* Afficher description et XFN */
-.nav-menus-php .auto-add-pages, /* Ajoutez automatiquement des pages */
-/* medias */
-.upload-php .view-switch .view-list, /* btn vue en liste */
-.media-modal .gallery-settings, /* options gallery (sidebar) */
-.media-modal label[data-setting="title"], /* champ titre */
-.media-modal label[data-setting="description"], /* champ description */
-.media-modal .actions a, /* liens vers la page du fichier joint & plus de détails */
-.attachment-display-settings div.setting /* champ lier à */
+.nav-menus-php .auto-add-pages /* Ajoutez automatiquement des pages */
 
 { display:none !important; }
 
-/* medias */
-.media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
 
 /*----------  page de config  ----------*/
 
