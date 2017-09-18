@@ -143,14 +143,20 @@ a[href*="customize.php"] { display:none; }
 { display:none !important; }
 
 
-/*----------  page de config  ----------*/
+/*----------  page de config & tax  ----------*/
 
-table.form-table + h2, table.form-table + p.submit {
+#edittag {
+	max-width: none ! important;
+}
+
+table.form-table + h2, table.form-table + p.submit,
+.term-php form h2, .edit-tag-actions {
 	border-top: 2px dashed #333;
 	padding:30px 0 0 0;
 	margin-top:30px;
 }
-table.form-table + p.submit {
+table.form-table + p.submit,
+.edit-tag-actions {
 	text-align: center;
 }
 
