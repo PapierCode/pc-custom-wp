@@ -32,11 +32,11 @@ add_action( 'admin_init', function() {
 });
 
 
-/*----------  Boutons personnalisés  ----------*/
+/*----------  Défaut  ----------*/
 
 add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
-    if ( post_type_supports( get_current_screen()->post_type, 'editor' ) ) {
+    if ( $settings['selector'] == '#content') {
         
         // Debug:
         // pc_var( $settings, true );
@@ -48,9 +48,9 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
         // menu type de block
         $settings['block_formats']                = $pcSettings['tinymce-block'];
         // plugin visual block activation
-        $settings['visualblocks_default_state']   = ($pcSettings['tinymce-visualblocks'] == 1 ? true : false);
+        $settings['visualblocks_default_state']   = true;
         // copier comme texte activation
-        $settings['paste_as_text']                = ($pcSettings['tinymce-paste'] == 1 ? true : false);
+        $settings['paste_as_text']                = true;
         // options plugin media
         $settings['media_alt_source']             = false;
         $settings['media_poster']                 = false;

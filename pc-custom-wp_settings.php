@@ -15,14 +15,9 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 	if ( !get_option( 'pc-settings-option' ) ) {
 
 		$optionsValues = array(
-			'tinymce-media'			=> '1',
-			'tinymce-quicktags'		=> '1',
-			'tinymce-rows'			=> '6',
 			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,alignright,outdent,indent,|,link,unlink,|,media',
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
-			'tinymce-visualblocks'	=> '1',
-			'tinymce-paste'			=> '1',
 
 			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
 		);
@@ -44,22 +39,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'prefix'    => 'tinymce',
 		        'fields'    => array(
 		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'media',
-		                'label'     => 'Ajouter des médias'
-		            ),
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'quicktags',
-		                'label'     => 'Mode texte'
-		            ),
-		            array(
-		                'type'      => 'text',
-		                'label_for' => 'rows',
-		                'label'     => 'Nombre de ligne',
-		                'css'       => 'width:5em'
-		            ),
-		            array(
 		                'type'      => 'text',
 		                'label_for' => 'toolbar1',
 		                'label'     => 'Barre d\'outils 1',
@@ -76,16 +55,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'label_for' => 'block',
 		                'label'     => 'Type de blocs',
 		                'css'       => 'width:100%'
-		            ),
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'visualblocks',
-		                'label'     => 'Afficher les blocs'
-		            ),
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'paste',
-		                'label'     => 'Coller comme texte'
 		            )
 		        )
 		    ),
