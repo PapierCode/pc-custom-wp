@@ -1,24 +1,28 @@
 /**
 *
-* Divers
-* Page de connexion
-* Alertes
-* Custom admin
-*
+* Ajout
+* Suppression
+* Wysiwyg
 *
 **/
 
 
-/*==============================
-=            Divers            =
-==============================*/
+/*=============================
+=            Ajout            =
+=============================*/
 
-/*----------  lien vers la page de config du thème  ----------*/
+/*----------  Page de connexion  ----------*/
 
-a[href*="customize.php"] { display:none; }
+.login h1 a {
+	background-image: url(images/logo-login.png);
+	background-size: initial;
+	background-position: center top;
+	width:320px;
+	height:150px;
+}
 
 
-/*----------  image preview (custom field)  ----------*/
+/*----------  Custom field : aperçu image  ----------*/
 
 .pc-media-preview {
 	display:flex;
@@ -50,64 +54,71 @@ a[href*="customize.php"] { display:none; }
 	margin-left:5px!important;
 }
 
-/*=====  FIN Divers  ======*/
 
-/*=========================================
-=            Page de connexion            =
-=========================================*/
+/*----------  Page de config & tax  ----------*/
 
-.login h1 a {
-	background-image: url(images/logo-login.png);
-	background-size: initial;
-	background-position: center top;
-	width:320px;
-	height:150px;
+/* tax : supprime limite largeur du contenu */
+#edittag {
+	max-width: none ! important;
+}
+
+/* config & tax : séparation des ensembles */
+table.form-table + h2, table.form-table + p.submit,
+.term-php form h2, .edit-tag-actions {
+	border-top: 2px dashed #333;
+	padding:30px 0 0 0;
+	margin-top:30px;
+}
+
+/* config & tax : position du btn submit */
+table.form-table + p.submit,
+.edit-tag-actions {
+	text-align: center;
 }
 
 
-/*=====  FIN Page de connexion  ======*/
-
-
-/*===============================
-=            Alertes            =
-===============================*/
+/*----------  Alertes  ----------*/
 
 .pc-message { font-size:18px; }
 .pc-message_false { color: red; }
 .pc-field-alert { border:1px solid red !important; }
 
 
-/*=====  FIN Alertes  ======*/
+/*=====  FIN Ajout  ======*/
 
 /*====================================
-=            Custom admin            =
+=            Suppressions            =
 ====================================*/
 
 /*----------  Medias page  ----------*/
 
-.upload-php .view-switch a, /* changement de vue */
-.upload-php .media-toolbar-secondary select /* filtres */ 
+.upload-php .view-switch a,	/* changement de vue */
+#media-attachment-filters	/* type de media */ 
 { display:none !important; }
 
-.upload-php .media-toolbar-secondary button /* selection */
+.upload-php .media-toolbar-secondary button /* alignement vertical */
 { margin: 12px 0 !important; } 
 
 
 /*----------  Medias modal ajout  ----------*/
 
-.media-modal label[data-setting="title"], /* champ titre */
-.media-modal label[data-setting="description"], /* champ description */
-.media-modal .settings label:nth-child(7), /* lien mise en ligne sur */
-.media-modal .actions a, /* liens vers la page du fichier joint & plus de détails */
-.media-modal .media-menu .separator, /* séparateurs dans le menu */
-.media-modal .media-menu .separator:last-of-type + a, /* lien insérer à partir d’une adresse web */
-.media-modal .gallery-settings, /* options gallerie */
-.media-modal .attachment-display-settings h2, /* titre réglages */
-.media-modal .attachment-display-settings .align, /* select alignement */
-.media-modal .attachment-display-settings div.setting /* select lié à */
+.media-modal .attachment-display-settings div.setting, 	/* Options media 	: select lié à */
+.media-modal .attachment-display-settings .align, 		/* Options media 	: select alignement */
+.media-modal .actions a, 								/* Options media 	: liens vers la page du fichier joint & plus de détails */
+.media-modal .settings label:nth-child(7),				/* Options media 	: lien mise en ligne sur */
+.media-modal label[data-setting="title"], 				/* Options media 	: champ titre */
+.media-modal label[data-setting="description"], 		/* Options media 	: champ description */
+.media-modal .attachment-display-settings h2, 			/* Options media 	: titre réglages */
+.media-modal .media-menu .separator, 					/* Menu latéral 	: séparateurs */
+.media-modal .media-menu .separator:last-of-type + a, 	/* Menu latéral 	: lien insérer à partir d’une adresse web */
+.media-modal .gallery-settings 							/* Options gallerie : all */
 { display:none !important; }
 
 .media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
+.media-modal #media-attachment-date-filters {
+	width: auto !important;
+	max-width: none !important;
+}
 
 
 /*----------  Medias modal modifications  ----------*/
@@ -118,7 +129,7 @@ a[href*="customize.php"] { display:none; }
 { display:none !important; }
 
 
-/*----------  Editeur popup  ----------*/
+/*----------  Icônes au clic sur une image  ----------*/
 
 .mce-panel [aria-label*="Align"],
 .mce-panel [aria-label="No alignment"]
@@ -128,40 +139,31 @@ a[href*="customize.php"] { display:none; }
 /*----------  Suppression diverses  ----------*/
 
 /* post & page */
-.edit-php .view-mode, /* metabox catégorie, lien pour ajouter */
-.post-new-php .taxonomy-add-new, .post-php .taxonomy-add-new, /* metabox catégorie, lien pour ajouter */
-.post-new-php .columns-prefs, .post-php .columns-prefs, /* options d'écran, nombre de colonnes */
-.post-new-php .editor-expand, .post-php .editor-expand, /* options d'écran, réglages supplémentaires */
-.no-url-rewriting #edit-slug-buttons, /* btn modification slug si désactivé */
+#newscategories-adder, 					/* Metabox catégorie	: lien pour ajouter */
+.metabox-prefs .columns-prefs, 			/* Options d'écran		: nombre de colonnes */
+.metabox-prefs .editor-expand,			/* Options d'écran		: éditeur plein écran */
+.no-url-rewriting #edit-slug-buttons,	/* Permalien			: bouton modifier */
 /* catégories */
-.edit-tags-php .term-parent-wrap, .term-php .term-parent-wrap, /* sélection parent */
-.edit-tags-php .term-description-wrap, .term-php .term-description-wrap, /* description */
+.term-parent-wrap, 				/* sélection parent */
+.term-description-wrap, 		/* description */
 /* menus */
-.nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),  /* Afficher description et XFN */
-.nav-menus-php .auto-add-pages /* Ajoutez automatiquement des pages */
-
+.nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),	/* Afficher description et XFN */
+.auto-add-pages 													/* Ajoutez automatiquement des pages */
 { display:none !important; }
 
 
-/*----------  page de config & tax  ----------*/
+/*----------  lien vers la page de config du thème  ----------*/
 
-#edittag {
-	max-width: none ! important;
-}
-
-table.form-table + h2, table.form-table + p.submit,
-.term-php form h2, .edit-tag-actions {
-	border-top: 2px dashed #333;
-	padding:30px 0 0 0;
-	margin-top:30px;
-}
-table.form-table + p.submit,
-.edit-tag-actions {
-	text-align: center;
-}
+a[href*="customize.php"] { display:none; }
 
 
-/*----------  WYSIWYG gallery preview  ----------*/
+/*=====  FIN Suppression  ======*/
+
+/*===============================
+=            WYSIWYG            =
+===============================*/
+
+/*----------  Gallery preview  ----------*/
 
 .mce-visualblocks .wpview,
 .mce-visualblocks .gallery {
@@ -188,7 +190,7 @@ table.form-table + p.submit,
 }
 
 
-/*----------  WYSIWYG ancre  ----------*/
+/*----------  Ancre  ----------*/
 
 #tinymce h2[id]:before,
 #tinymce h3[id]:before,
@@ -206,4 +208,4 @@ table.form-table + p.submit,
 }
 
 
-/*=====  FIN Custom admin  ======*/
+/*=====  FIN WYSIWYG  ======*/
