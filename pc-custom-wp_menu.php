@@ -11,7 +11,7 @@
 =            Modifiations            =
 ====================================*/
 
-add_action( 'admin_menu', function(){
+add_action( 'admin_menu', function() use($pcSettings) {
 
 	global $menu;
 	global $submenu;
@@ -35,11 +35,13 @@ add_action( 'admin_menu', function(){
     }
 	
 	// tous les utilisateurs
-	remove_menu_page( 'edit.php' ); 			// articles
-	remove_menu_page( 'edit-comments.php' );	// commentaires
-    unset($submenu['upload.php'][5]); 			// sous menu bibliothèque médias
-    unset($submenu['upload.php'][10]); 			// sous menu  ajouter médias
-    unset($submenu['themes.php'][6]);			// personnaliser le thème
+	remove_menu_page( 'edit.php' ); 						// articles
+	if ( !isset($pcSettings['comments-menu']) ) {
+		remove_menu_page( 'edit-comments.php' );			// commentaires
+	}
+    unset($submenu['upload.php'][5]); 						// sous menu bibliothèque médias
+    unset($submenu['upload.php'][10]); 						// sous menu  ajouter médias
+    unset($submenu['themes.php'][6]);						// personnaliser le thème
 
 });
 

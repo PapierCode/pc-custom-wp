@@ -149,6 +149,18 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'label'     => 'Réécriture des URL'
 		            )
 		        )
+		    ),
+		    array(
+				'title'     => 'Commentaires',
+		        'id'        => 'comments-config',
+		        'prefix'    => 'comments',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'menu',
+		                'label'     => 'Afficher le menu'
+		            )
+		        )
 		    )
 		);
 
