@@ -148,7 +148,10 @@ table.form-table + p.submit,
 .term-description-wrap, 		/* description */
 /* menus */
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),	/* Afficher description et XFN */
-.auto-add-pages 													/* Ajoutez automatiquement des pages */
+.auto-add-pages, 													/* Ajoutez automatiquement des pages */
+/* page commentaire */
+#filter-by-comment-type,			/* select type de commentaires */
+#filter-by-comment-type + input 
 { display:none !important; }
 
 
