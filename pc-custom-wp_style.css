@@ -139,7 +139,7 @@ table.form-table + p.submit,
 /*----------  Suppression diverses  ----------*/
 
 /* post & page */
-#newscategories-adder, 					/* Metabox catégorie	: lien pour ajouter */
+.taxonomy-add-new, 						/* Metabox catégorie	: lien pour ajouter */
 .metabox-prefs .columns-prefs, 			/* Options d'écran		: nombre de colonnes */
 .metabox-prefs .editor-expand,			/* Options d'écran		: éditeur plein écran */
 .no-url-rewriting #edit-slug-buttons,	/* Permalien			: bouton modifier */
