@@ -38,3 +38,18 @@ add_filter('login_headertitle', function($message) {
 
 
 /*=====  FIN Page de connexion  ======*/
+
+/*================================
+=            Sécurité            =
+================================*/
+
+/*----------  Masquer les erreurs de connexion à l'administration  ----------*/
+
+add_filter('login_errors', function () {
+
+	return "L'identifiant ou le mot de passe est incorrect.";
+
+});
+
+
+/*=====  FIN Sécurité  ======*/
