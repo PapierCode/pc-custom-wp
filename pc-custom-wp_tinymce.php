@@ -61,5 +61,18 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
 });
 
+// onglet texte seulement pour les administrateurs
+
+add_filter('wp_editor_settings', function ($settings) {
+
+    if ( current_user_can('editor') ) {
+
+            $settings['quicktags'] = false;
+            return $settings;
+
+    }
+
+});
+
 
 /*=====  FIN TinyMCE  ======*/
