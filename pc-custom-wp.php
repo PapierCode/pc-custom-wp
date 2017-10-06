@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public 
-Version: 0.6.0
+Version: 0.7.0
 Author: Papier Codé
 */
 
@@ -12,11 +12,10 @@ Author: Papier Codé
 *
 * Include
 * Divers
-* Page de connexion
 * Barre d'admin
 * Footer
 * Mise à jour slug à la sauvegarde
-* Modification rapide
+* Google Analytics
 *
 **/
 
@@ -110,6 +109,19 @@ add_filter( 'media_library_show_video_playlist', function () { return false; } )
 add_filter( 'media_library_show_audio_playlist', function () { return false; } );
 
 
+/*----------  supprime le lien "Modifications rapide" dans les listes de pages et posts  ----------*/
+
+add_filter( 'post_row_actions', 'pc_remove_quick_link', 10, 2 );
+add_filter( 'page_row_actions', 'pc_remove_quick_link', 10, 2 );
+
+    function pc_remove_quick_link( $actions ) {
+      
+        unset( $actions['inline hide-if-no-js'] );
+        return $actions;
+
+    }
+
+
 /*=====  FIN Divers  ======*/
 
 /*=====================================
@@ -195,20 +207,19 @@ if ( !isset($pcSettings['seo-rewrite-url']) ) {
 
 /*=====  FIN Mise à jour slug à la sauvegarde  ======*/
 
-/*===========================================
-=            Modification Rapide            =
-===========================================*/
+/*========================================
+=            Google Analytics            =
+========================================*/
 
-// supprime le lien "Modifications rapide" dans les listes de pages et posts
+function pc_display_tag_analytics() use($pcSettings) {
 
-add_filter( 'post_row_actions', 'pc_remove_quick_link', 10, 2 );
-add_filter( 'page_row_actions', 'pc_remove_quick_link', 10, 2 );
-
-    function pc_remove_quick_link( $actions ) {
-      
-        unset( $actions['inline hide-if-no-js'] );
-        return $actions;
+    if ( isset( $pcSettings['google-analytics-active'] ) ) {
+    
+        echo '<script async src="https://www.googletagmanager.com/gtag/js?id='.$pcSettings['google-analytics-code'].'"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("config", "'.$pcSettings['google-analytics-code'].'");</script>';
 
     }
 
-/*=====  FIN Modification Rapide  ======*/
+}
+
+
+/*=====  FIN Google Analytics  ======*/
