@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public 
-Version: 0.7.0
+Version: 0.7.1
 Author: Papier Codé
 */
 
@@ -211,7 +211,9 @@ if ( !isset($pcSettings['seo-rewrite-url']) ) {
 =            Google Analytics            =
 ========================================*/
 
-function pc_display_tag_analytics() use($pcSettings) {
+function pc_display_tag_analytics() {
+
+    global $pcSettings;
 
     if ( isset( $pcSettings['google-analytics-active'] ) ) {
     
