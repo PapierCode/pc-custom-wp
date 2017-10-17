@@ -65,12 +65,9 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
 add_filter('wp_editor_settings', function ($settings) {
 
-    if ( current_user_can('editor') ) {
+    if ( current_user_can('editor') ) { $settings['quicktags'] = false; }
 
-            $settings['quicktags'] = false;
-            return $settings;
-
-    }
+    return $settings;
 
 });
 
