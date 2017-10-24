@@ -131,8 +131,8 @@ table.form-table + p.submit,
 
 /*----------  Icônes au clic sur une image  ----------*/
 
-.mce-panel [aria-label*="Align"],
-.mce-panel [aria-label="No alignment"]
+.mce-inline-toolbar-grp [aria-label*="Align"],
+.mce-inline-toolbar-grp [aria-label="No alignment"]
 { display:none !important; }
 
 
