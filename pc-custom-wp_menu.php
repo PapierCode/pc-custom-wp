@@ -15,40 +15,33 @@ add_action( 'admin_menu', function() use($pcSettings) {
 
 	global $menu;
 	global $submenu;
+	// echo '<pre style="margin-left:150px">';
+	// print_r($menu);
+	// echo '</pre>';
+	// return;
 
-	/*----------  Pour les utilisateurs non administrateur  ----------*/
-	
+	$menu[10][6] = 'dashicons-format-gallery'; // Nouvel icône pour Médias
+	$menu[60][0] = 'Composants'; // Apparence devient Composants
+	$menu[60][6] = 'dashicons-welcome-widgets-menus'; // Nouvel icon pour Composants
+
+	// pour les utilisateurs non administrateur
     if ( !current_user_can('update_core') ) {
 
-	    remove_menu_page( 'tools.php' ); 	// menu "Outils"
-		remove_menu_page( 'themes.php' );		// menu "Apparence"
+	    remove_menu_page( 'tools.php' ); 	// outils
+
+	    // voir aussi ci-dessous "ajout de droits aux éditeurs"
+        unset($submenu['themes.php'][5]); 	// gestion des thèmes
 
     }
-
 	
-	/*----------  Tous les utilisateurs  ----------*/
-	
-	remove_menu_page( 'edit.php' ); 						// menu "Articles"
-	remove_submenu_page('upload.php', 'media-new.php');		// sous-menu "ajouter un média"
-	unset($submenu['themes.php'][6]);						// sous-menu "Personnaliser"
-	unset($submenu['themes.php'][10]);						// sous-menu "Menus"
-
-	// en option la page Commentaires
-	if ( !isset($pcSettings['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
-
-    // déplace l'accès aux menus
-	$menu[31] = array(
-		'Menus',				// Nom
-		'edit_pages',			// droits
-		'nav-menus.php',		// cible
-		'',						// ??
-		'menu-top menu-nav',	// classes CSS
-		'menu-nav',				// id CSS
-		'dashicons-menu'		// icône
-	);  
-	
-	// nouvel icône pour Médias
-	$menu[10][6] = 'dashicons-format-gallery'; 
+	// tous les utilisateurs
+	remove_menu_page( 'edit.php' ); 						// articles
+	if ( !isset($pcSettings['comments-menu']) ) {
+		remove_menu_page( 'edit-comments.php' );			// commentaires
+	}
+    unset($submenu['upload.php'][5]); 						// sous menu bibliothèque médias
+    unset($submenu['upload.php'][10]); 						// sous menu  ajouter médias
+    unset($submenu['themes.php'][6]);						// personnaliser le thème
 
 });
 
