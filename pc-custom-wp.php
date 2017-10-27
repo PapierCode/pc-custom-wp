@@ -28,7 +28,7 @@ Author: Papier Codé
 
 include 'pc-custom-wp_settings.php';
 
-$pcSettings = get_option( 'pc-settings-option' );   // cf fichier ci-dessus
+$pcSettings = get_option( 'pc-settings-option' );   // cf. fichier ci-dessus
 
 
 /*----------  JS & CSS  ----------*/
