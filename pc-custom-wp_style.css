@@ -212,3 +212,14 @@ a[href*="customize.php"] { display:none; }
 
 
 /*=====  FIN WYSIWYG  ======*/
+
+/*=============================
+=            Forms            =
+=============================*/
+
+.label-required {
+	color:red;
+}
+
+/*=====  FIN Forms  ======*/
+
