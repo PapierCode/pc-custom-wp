@@ -61,7 +61,7 @@ function pc_metabox_attributes($post, $datas) {
 
     /*----------  Parent  ----------*/
 
-    if( isset($datas['args']['page-parent']) ) {
+    if( isset($datas['args']['page-parent']) && wp_count_posts('page')->publish > 1 ) {
         
         $currentParent = wp_get_post_parent_id($currentId);
         echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id">Parent</label></p>';

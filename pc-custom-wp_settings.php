@@ -19,7 +19,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 
-			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
+			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
 		);
 
 		add_option( 'pc-settings-option', $optionsValues ,'', 'no');

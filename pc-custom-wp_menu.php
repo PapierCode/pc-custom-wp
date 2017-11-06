@@ -21,7 +21,8 @@ add_action( 'admin_menu', function() use($pcSettings) {
     if ( !current_user_can('update_core') ) {
 
 	    remove_menu_page( 'tools.php' ); 	// menu "Outils"
-		remove_menu_page( 'themes.php' );		// menu "Apparence"
+		remove_menu_page( 'themes.php' );	// menu "Apparence"
+		remove_submenu_page('upload.php', 'tiny-bulk-optimization');
 
     }
 
@@ -50,7 +51,7 @@ add_action( 'admin_menu', function() use($pcSettings) {
 	// nouvel icône pour Médias
 	$menu[10][6] = 'dashicons-format-gallery'; 
 
-});
+}, 999);
 
 
 /*=====  FIN Modifiations  ======*/
