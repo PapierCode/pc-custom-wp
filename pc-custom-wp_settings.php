@@ -33,6 +33,18 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
 		$pcSettingsContent = array(
 		    array(
+		        'title'     => 'Développement',
+		        'id'        => 'dev',
+		        'prefix'    => 'dev',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'class-examples',
+		                'label'     => 'Customs exemples'
+		            )
+		        )
+		    ),
+		    array(
 		        'title'     => 'TinyMCE',
 		        'id'        => 'wp-config-tinymce',
 		        'desc'      => 'Configuration par défaut.',
@@ -165,7 +177,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		);
 
 		// création de la page
-		$pcSettings = new PC_Add_Admin_Page( 'Papier Codé réglages', '', 'PC Réglages', 'pc-settings', $pcSettingsContent, 'admin', '81', 'dashicons-admin-settings' );
+		$pcPageSettings = new PC_Add_Admin_Page( 'Papier Codé réglages', '', 'PC Réglages', 'pc-settings', $pcSettingsContent, 'admin', '81', 'dashicons-admin-settings' );
 
 
 	} // FIN if class_exists('PC_Add_Admin_Page')
