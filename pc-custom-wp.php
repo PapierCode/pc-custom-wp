@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public 
-Version: 0.8.0
+Version: 0.8.1
 Author: Papier Codé
 */
 
@@ -57,6 +57,8 @@ include 'pc-custom-wp_menu.php';
 include 'pc-custom-wp_page.php';
 // Tiny MCE
 include 'pc-custom-wp_tinymce.php';
+// medias
+include 'pc-custom-wp_medias.php';
 
 
 /*----------  Admin body class  ----------*/

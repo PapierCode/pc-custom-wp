@@ -97,7 +97,7 @@ table.form-table + p.submit,
 { display:none !important; }
 
 .upload-php .media-toolbar-secondary button /* alignement vertical */
-{ margin: 12px 0 !important; } 
+{ margin: 12px 10px 12px 0 !important; }
 
 
 /*----------  Medias modal ajout  ----------*/
