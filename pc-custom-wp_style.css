@@ -166,11 +166,47 @@ a[href*="customize.php"] { display:none; }
 =            WYSIWYG            =
 ===============================*/
 
+.mce-visualblocks div {
+	padding:0 !important;
+	background-image: none !important;
+}
+
+/*----------  Images  ----------*/
+
+.mce-visualblocks img {
+	vertical-align: bottom;
+	margin:0!important;
+}
+
+.wp-caption {
+	background-image: none !important;
+	display:flex;
+	flex-direction: column;	
+	margin:0;
+	width: 100% !important;
+	margin: 0 !important;
+	border: none !important;
+}
+.wp-caption.alignleft, .wp-caption.aligncenter, .wp-caption.alignright {
+	float:none;
+}
+.wp-caption.aligncenter {
+	align-items: center;
+}
+.wp-caption.alignright {
+	align-items: flex-end;
+}
+.wp-caption-dd {
+	font-style: italic;
+}
+
+
 /*----------  Gallery preview  ----------*/
 
-.mce-visualblocks .wpview,
+.mce-visualblocks .wpview {
+	margin:0 0 15px 0 !important;
+}
 .mce-visualblocks .gallery {
-	padding:0 !important;
 	margin:0 !important;
 }
 .mce-visualblocks .gallery {
