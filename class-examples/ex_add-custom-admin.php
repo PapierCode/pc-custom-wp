@@ -25,6 +25,13 @@ $customAdminContent = array(
         'prefix'    => 'prefix',                                // obligatoire
         'fields'    => array(
             array(
+                'type'      => 'url',                          // obligatoire
+                'label_for' => 'input-url',                     // obligatoire
+                'label'     => 'Custom input url',              // obligatoire
+                'desc'      => 'Aide ou description du champ',
+                'required'  => false
+            ),
+            array(
                 'type'      => 'text',                          // obligatoire
                 'label_for' => 'input-txt',                     // obligatoire
                 'label'     => 'Custom input txts',              // obligatoire
@@ -159,6 +166,7 @@ function sanitize_example($datas) {
 
     // nettoyage des champs input type text & textarea
     $datas['prefix-input-txt'] = sanitize_text_field($datas['prefix-input-txt']);
+    $datas['prefix-input-url'] = sanitize_text_field($datas['prefix-input-url']);
     $datas['prefix-textarea'] = sanitize_text_field($datas['prefix-textarea']);
 
     return $datas;

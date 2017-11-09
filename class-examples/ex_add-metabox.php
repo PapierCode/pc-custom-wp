@@ -22,6 +22,14 @@ $customMetaboxContent = array(
     'prefix'    => 'prefix',                                // obligatoire
     'fields'    => array(
         array(
+            'type'      => 'url',                           // obligatoire
+            'id'        => 'input-link',                    // obligatoire
+            'label'     => 'Custom url',                    // obligatoire
+            'desc'      => 'Aide ou description du champ',
+            'clean'     => true,
+            'required'  => false
+        ),
+        array(
             'type'      => 'text',                          // obligatoire
             'id'        => 'input-txt',                     // obligatoire
             'label'     => 'Custom input txt',              // obligatoire

@@ -54,6 +54,19 @@
 	margin-left:5px!important;
 }
 
+/*----------  Custom field : modale lien  ----------*/
+
+.pc-modal-link #link-options,
+.pc-modal-link #wplink-link-existing-content
+{ display:none; }
+
+.pc-modal-link .link-search-wrapper {
+	margin:10px 0 0 0 !important;
+}
+.pc-modal-link .query-results {
+	top:80px!important;
+}
+
 
 /*----------  Page de config & tax  ----------*/
 
