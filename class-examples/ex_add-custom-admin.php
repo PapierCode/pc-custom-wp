@@ -24,17 +24,24 @@ $customAdminContent = array(
         'desc'      => '<p>Un contenu HTML libre.</p>',
         'prefix'    => 'prefix',                                // obligatoire
         'fields'    => array(
-            array(
-                'type'      => 'url',                          // obligatoire
+            array( // + callback sanitize
+                'type'      => 'url',                           // obligatoire
                 'label_for' => 'input-url',                     // obligatoire
                 'label'     => 'Custom input url',              // obligatoire
                 'desc'      => 'Aide ou description du champ',
                 'required'  => false
             ),
-            array(
+            array( // + callback sanitize
+                'type'      => 'date',                          // obligatoire
+                'label_for' => 'input-date',                    // obligatoire
+                'label'     => 'Custom input date',             // obligatoire
+                'desc'      => 'Aide ou description du champ',
+                'required'  => false
+            ),
+            array( // + callback sanitize
                 'type'      => 'text',                          // obligatoire
                 'label_for' => 'input-txt',                     // obligatoire
-                'label'     => 'Custom input txts',              // obligatoire
+                'label'     => 'Custom input txts',             // obligatoire
                 'desc'      => 'Aide ou description du champ',
                 'attr'      => 'class="" data-attr=""',
                 'css'       => 'width:100%;',
@@ -109,7 +116,7 @@ $customAdminContent = array(
         'desc'      => '<p>Un contenu HTML libre.</p>',
         'prefix'    => 'prefix',                                // obligatoire
         'fields'    => array(
-            array(
+            array( // + callback sanitize
                 'type'      => 'textarea',                      // obligatoire
                 'label_for' => 'textarea',                      // obligatoire
                 'label'     => 'Custom textarea',               // obligatoire
@@ -152,11 +159,11 @@ $customAdmin = new PC_Add_Admin_Page(
 	'',                         // obligatoire, slug page parent ou vide
     'Custom Administration',    // obligatoire, texte du menu
     'custom-admin',             // obligatoire, slug de la page, sans caractères spéciaux ni espaces ni majuscules
-    $customAdminContent,         // obligatoire, contenu
-    'editor',// droit d'accès 'editor'(defaut) ou 'admin'
-    99,// position dans le menu (niveau 1), entre 0 et 99 (default)
-    'dashicons-clipboard',// icône dans le menu (niveau 1), par defaut 'dashicons-clipboard'
-    'sanitize_example'
+    $customAdminContent,        // obligatoire, contenu
+    'editor',                   // droit d'accès 'editor'(defaut) ou 'admin'
+    99,                         // position dans le menu (niveau 1), entre 0 et 99 (default)
+    'dashicons-clipboard',      // icône dans le menu (niveau 1), par defaut 'dashicons-clipboard'
+    'sanitize_example'          // fonction de traitement de données
 );
 
 
@@ -167,6 +174,7 @@ function sanitize_example($datas) {
     // nettoyage des champs input type text & textarea
     $datas['prefix-input-txt'] = sanitize_text_field($datas['prefix-input-txt']);
     $datas['prefix-input-url'] = sanitize_text_field($datas['prefix-input-url']);
+    $datas['prefix-input-date'] = sanitize_text_field(pc_date_admin_to_bdd($datas['prefix-input-date']));
     $datas['prefix-textarea'] = sanitize_text_field($datas['prefix-textarea']);
 
     return $datas;
