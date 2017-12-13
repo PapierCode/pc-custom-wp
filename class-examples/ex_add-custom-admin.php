@@ -171,7 +171,7 @@ $customAdmin = new PC_Add_Admin_Page(
 
 function sanitize_example($datas) {
 
-    // nettoyage des champs input type text & textarea
+    // nettoyage des champs input libres
     $datas['prefix-input-txt'] = sanitize_text_field($datas['prefix-input-txt']);
     $datas['prefix-input-url'] = sanitize_text_field($datas['prefix-input-url']);
     $datas['prefix-input-date'] = sanitize_text_field(pc_date_admin_to_bdd($datas['prefix-input-date']));
