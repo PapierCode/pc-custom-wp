@@ -3,8 +3,8 @@
 /*
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
-Description: Customisations admin & public 
-Version: 0.9.2
+Description: Customisations admin & public
+Version: 0.9.3
 Author: Papier Codé
 */
 
@@ -75,7 +75,7 @@ add_filter( 'admin_body_class', function($classes) use ($pcSettings) {
 
     return $classes;
 
-}); 
+});
 
 
 /*----------  Custom Class exemples  ----------*/
@@ -133,7 +133,7 @@ add_filter( 'post_row_actions', 'pc_remove_quick_link', 10, 2 );
 add_filter( 'page_row_actions', 'pc_remove_quick_link', 10, 2 );
 
     function pc_remove_quick_link( $actions ) {
-      
+
         unset( $actions['inline hide-if-no-js'] );
         return $actions;
 
@@ -181,8 +181,8 @@ add_filter( 'admin_footer_text', function() {
 
 /*----------  Masquer version WP  ----------*/
 
-add_action( 'admin_menu', function() { 
-		
+add_action( 'admin_menu', function() {
+
 	remove_filter( 'update_footer', 'core_update_footer' );
 
 });
@@ -234,7 +234,7 @@ function pc_display_tag_analytics() {
     global $pcSettings;
 
     if ( isset( $pcSettings['google-analytics-active'] ) ) {
-    
+
         echo '<script async src="https://www.googletagmanager.com/gtag/js?id='.$pcSettings['google-analytics-code'].'"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("config", "'.$pcSettings['google-analytics-code'].'");</script>';
 
     }
