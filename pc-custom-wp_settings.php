@@ -15,11 +15,12 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 	if ( !get_option( 'pc-settings-option' ) ) {
 
 		$optionsValues = array(
+			'tinymce-medias'			=> 1,
 			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,alignright,outdent,indent,|,link,unlink,|,media',
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 
-			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
+			'help-seo'					=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
 		);
 
 		add_option( 'pc-settings-option', $optionsValues ,'', 'no');
@@ -50,6 +51,11 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'desc'      => 'Configuration par défaut.',
 		        'prefix'    => 'tinymce',
 		        'fields'    => array(
+						array(
+							'type'      => 'checkbox',
+							'label_for' => 'medias',
+							'label'     => 'Ajouter des médias'
+						),
 		            array(
 		                'type'      => 'text',
 		                'label_for' => 'toolbar1',

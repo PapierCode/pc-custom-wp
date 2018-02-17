@@ -32,15 +32,20 @@ add_action( 'admin_init', function() {
 });
 
 
+/*----------  Bouton Medias  ----------*/
+
+if ( !isset($pcSettings['tinymce-medias']) ) {
+
+   add_action('admin_head', function() { remove_action( 'media_buttons', 'media_buttons' ); });
+
+}
+
+
 /*----------  Défaut  ----------*/
 
 add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
     if ( $settings['selector'] == '#content') {
-        
-        // Debug:
-        // pc_var( $settings, true );
-        // exit();
 
         // contenu des barres d'outils
         $settings['toolbar1']                     = $pcSettings['tinymce-toolbar1'];
