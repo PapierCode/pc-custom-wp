@@ -106,7 +106,7 @@ table.form-table + p.submit,
 /*----------  Medias page  ----------*/
 
 .upload-php .view-switch a,	/* changement de vue */
-#media-attachment-filters	/* type de media */ 
+#media-attachment-filters	/* type de media */
 { display:none !important; }
 
 .upload-php .media-toolbar-secondary button /* alignement vertical */
@@ -164,7 +164,7 @@ table.form-table + p.submit,
 .auto-add-pages, 													/* Ajoutez automatiquement des pages */
 /* page commentaire */
 #filter-by-comment-type,			/* select type de commentaires */
-#filter-by-comment-type + input 
+#filter-by-comment-type + input
 { display:none !important; }
 
 
@@ -188,13 +188,20 @@ a[href*="customize.php"] { display:none; }
 
 .mce-visualblocks img {
 	vertical-align: bottom;
-	margin:0!important;
+}
+.mce-visualblocks img.alignright,
+.mce-visualblocks img.alignleft {
+	float:none!important;
+	display:block;
+}
+.mce-visualblocks img.alignright {
+	margin-left: auto!important;
 }
 
 .wp-caption {
 	background-image: none !important;
 	display:flex;
-	flex-direction: column;	
+	flex-direction: column;
 	margin:0;
 	width: 100% !important;
 	margin: 0 !important;
@@ -271,4 +278,3 @@ a[href*="customize.php"] { display:none; }
 }
 
 /*=====  FIN Forms  ======*/
-
