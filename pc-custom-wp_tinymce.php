@@ -70,7 +70,7 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
 add_filter('wp_editor_settings', function ($settings) {
 
-    if ( current_user_can('editor') ) { $settings['quicktags'] = false; }
+    if ( wp_get_current_user()->roles[0] == 'editor' ) { $settings['quicktags'] = false; }
 
     return $settings;
 
