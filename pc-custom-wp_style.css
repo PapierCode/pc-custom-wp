@@ -193,6 +193,7 @@ a[href*="customize.php"] { display:none; }
 .mce-visualblocks img.alignleft {
 	float:none!important;
 	display:block;
+	margin: 0!important;
 }
 .mce-visualblocks img.alignright {
 	margin-left: auto!important;
