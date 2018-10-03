@@ -16,11 +16,15 @@ if ( class_exists('PC_Add_Admin_Page') ) {
 // cf. page 'PC réglages' généré par le widget '[PC] Custom WP'
 $tinymceDefault = get_option( 'pc-settings-option' );
 
+// champ custom
+// la variable contient le html du champ
+$customFieldContent = 'Champ customisé (ex. : liste de posts).';
+
 // sections et champs associés
 $customAdminContent = array(
-    array( 
+    array(
         'title'     => 'Ensemble de champs n°1',                // obligatoire
-        'id'        => 'section-a',                             // obligatoire   
+        'id'        => 'section-a',                             // obligatoire
         'desc'      => '<p>Un contenu HTML libre.</p>',
         'prefix'    => 'prefix',                                // obligatoire
         'fields'    => array(
@@ -107,12 +111,19 @@ $customAdminContent = array(
                 'options'   => array(                           // obligatoire
                     'btnremove' => true
                 )
+            ),
+            array(
+                'type'      => 'custom',                        // obligatoire
+                'label_for' => 'custom',                        // obligatoire
+                'label'     => 'Custom',                        // obligatoire
+                'desc'      => 'Aide ou description du champ',
+                'display'   => $customFieldContent
             )
         )
     ),
     array(
         'title'     => 'Ensemble de champs n°2',                // obligatoire
-        'id'        => 'section-b',                             // obligatoire   
+        'id'        => 'section-b',                             // obligatoire
         'desc'      => '<p>Un contenu HTML libre.</p>',
         'prefix'    => 'prefix',                                // obligatoire
         'fields'    => array(

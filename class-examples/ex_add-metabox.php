@@ -30,7 +30,7 @@ $customMetaboxAContent = array(
             'required'  => false
         ),
         array(
-            'type'      => 'text',                          // obligatoire
+            'type'      => 'text',                          // ou number, ou email, obligatoire
             'id'        => 'input-txt',                     // obligatoire
             'label'     => 'Custom input txt',              // obligatoire
             'desc'      => 'Aide ou description du champ',
@@ -60,6 +60,20 @@ $customMetaboxAContent = array(
             'type'      => 'radio',                         // obligatoire
             'id'        => 'radio',                         // obligatoire
             'label'     => 'Custom radio',                  // obligatoire
+            'desc'      => 'Aide ou description du champ',
+            'attr'      => 'class="" data-attr=""',
+            'css'       => '',
+            'required'  => false,
+            'options'   => array(                           // obligatoire
+                'Valeur A' => 'a',
+                'Valeur B' => 'b',
+                'Valeur C' => 'c'
+            )
+        ),
+        array(
+            'type'      => 'checkboxes',                    // obligatoire
+            'id'        => 'checkboxes',                    // obligatoire
+            'label'     => 'Custom checkboxes',                  // obligatoire
             'desc'      => 'Aide ou description du champ',
             'attr'      => 'class="" data-attr=""',
             'css'       => '',
