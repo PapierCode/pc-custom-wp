@@ -42,6 +42,11 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'type'      => 'checkbox',
 		                'label_for' => 'class-examples',
 		                'label'     => 'Customs exemples'
+					),
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'version',
+		                'label'     => 'Version de développement'
 		            )
 		        )
 		    ),
