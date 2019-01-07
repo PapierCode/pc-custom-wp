@@ -32,6 +32,15 @@ $fieldToTaxContent = array(
             'required'  => false
         ),
         array(
+            'type'      => 'number',                        // obligatoire
+            'id'        => 'input-txt',                     // obligatoire
+            'label'     => 'Custom input txt',              // obligatoire
+            'desc'      => 'Aide ou description du champ',
+            'attr'      => 'class="" data-attr=""',
+            'css'       => 'width:100%;',
+            'required'  => false
+        ),
+        array(
             'type'      => 'textarea',                      // obligatoire
             'id'        => 'textarea',                      // obligatoire
             'label'     => 'Custom textarea',               // obligatoire

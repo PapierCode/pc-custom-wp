@@ -13,7 +13,8 @@ jQuery(document).ready(function($){
 
 /*----------  Titre des posts & pages  ----------*/
 
-$('#post').submit(function(event){
+// .post-type-shop_order = woocommerce nouvelle commande
+$('body:not(.post-type-shop_order) #post').submit(function(event){
 	
 	var $title = $('#title');
 
