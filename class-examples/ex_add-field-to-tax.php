@@ -86,6 +86,20 @@ $fieldToTaxContent = array(
             )
         ),
         array(
+            'type'      => 'color',                        // obligatoire
+            'id'        => 'color',                        // obligatoire
+            'label'     => 'Custom color',                 // obligatoire
+            'desc'      => 'Aide ou description du champ',
+            'attr'      => 'class="" data-attr=""',
+            'css'       => '',
+            'required'  => false,
+            'options'   => array(                           // obligatoire
+                'Vert' => 'green',
+                'Orange' => 'orange',
+                'Gris' => '#ccc'
+            )
+        ),
+        array(
             'type'      => 'wysiwyg',                       // obligatoire
             'id' 		=> 'wysiwyg',                       // obligatoire
             'label'     => 'Custom wysiwyg',                // obligatoire

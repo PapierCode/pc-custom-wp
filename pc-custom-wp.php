@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public
-Version: 0.10.10
+Version: 0.10.11
 Author: Papier Codé
 */
 
