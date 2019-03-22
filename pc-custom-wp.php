@@ -4,7 +4,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public
-Version: 0.10.11
+Version: 0.11.0
 Author: Papier Codé
 */
 
@@ -225,9 +225,9 @@ if ( !isset($pcSettings['seo-rewrite-url']) ) {
 
 /*=====  FIN Mise à jour slug à la sauvegarde  ======*/
 
-/*========================================
-=            Google Analytics            =
-========================================*/
+/*====================================
+=            Statistiques            =
+====================================*/
 
 function pc_display_tag_analytics() {
 
@@ -241,5 +241,17 @@ function pc_display_tag_analytics() {
 
 }
 
+function pc_display_tag_matomo() {
 
-/*=====  FIN Google Analytics  ======*/
+    global $pcSettings;
+
+    if ( isset( $pcSettings['matomo-analytics-active'] ) ) {
+
+        echo '<script type="text/javascript">var _paq = window._paq || [];_paq.push(["trackPageView"]);_paq.push(["enableLinkTracking"]);(function(){var u="https://analytics.papier-code.fr/"; _paq.push(["setTrackerUrl", u+"matomo.php"]);_paq.push(["setSiteId", "'.$pcSettings['matomo-analytics-code'].'"]);var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);})();</script>';
+
+    }
+
+}
+
+
+/*=====  FIN Statistiques  ======*/

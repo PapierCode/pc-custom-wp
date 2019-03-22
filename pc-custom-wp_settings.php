@@ -111,6 +111,23 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
+		        'title'     => 'Matomo',
+		        'id'        => 'matomo',
+		        'prefix'    => 'matomo',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'analytics-active',
+		                'label'     => 'Activer les statistiques'
+					),
+					array(
+		                'type'      => 'text',
+		                'label_for' => 'analytics-code',
+		                'label'     => 'Identifiant pour les statistiques'
+		            ),
+		        )
+		    ),
+		    array(
 		        'title'     => 'Pages',
 		        'id'        => 'page-config',
 		        'prefix'    => 'page',
