@@ -132,7 +132,8 @@ table.form-table + p.submit,
 .media-modal .attachment-display-settings h2, 			/* Options media 	: titre réglages */
 .media-modal .media-menu .separator, 					/* Menu latéral 	: séparateurs */
 .media-modal .media-menu .separator:last-of-type + a, 	/* Menu latéral 	: lien insérer à partir d’une adresse web */
-.media-modal .gallery-settings 							/* Options gallerie : all */
+.media-modal .gallery-settings, 						/* Options gallerie : all */
+.media-modal .media-types-required-info					/* Mention champs obligatoies */
 { display:none !important; }
 
 .media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
@@ -182,6 +183,16 @@ a[href*="customize.php"] { display:none; }
 
 
 /*=====  FIN Suppression  ======*/
+
+/*====================================
+=            Modification            =
+====================================*/
+
+.media-modal .help {
+	margin-top:0;
+}
+
+/*=====  FIN Modification  ======*/
 
 /*===============================
 =            WYSIWYG            =
