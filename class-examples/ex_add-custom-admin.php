@@ -40,7 +40,7 @@ $customAdminContent = array(
                 'label_for' => 'input-date',                    // obligatoire
                 'label'     => 'Custom input date',             // obligatoire
                 'desc'      => 'Aide ou description du champ',
-                'required'  => false
+                'required'  => true
             ),
             array( // + callback sanitize
                 'type'      => 'text',                          // obligatoire
