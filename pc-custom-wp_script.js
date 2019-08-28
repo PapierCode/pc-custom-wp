@@ -19,29 +19,33 @@ $('body:not(.post-type-shop_order) form').submit(function(event){
 	// titre
 	var $title = $('#title');
 	if ( $title.val() == "" ) {
-		event.preventDefault();
-		$title.addClass('pc-field-alert').after('<em class="pc-message pc-message_false">Le titre est obligatoire</em>');
-	}
-	// custom field date
-	var $datePicker = $('.pc-date-picker:required'), dateRequired = false, $dateError = false;
-	if ( $datePicker.length > 0 ) {
-		$datePicker.each(function() {
-			if ( $(this).val() == '' ) {
-				if ( !$(this).hasClass('pc-field-alert') ) {
-					$(this).addClass('pc-field-alert').after('<p><em class="pc-message pc-message_false">Ce champ est obligatoire</em></p>');
-				}
-				dateRequired = true;
-				if ( !$dateError ) { $dateError = $(this) };
-			} else if ( $(this).hasClass('pc-field-alert') ) {
-				$(this).removeClass('pc-field-alert').next('p').remove();
-			}
-		});
-		if ( dateRequired ) {
-			event.preventDefault();
-			$('html, body').animate({ scrollTop: $dateError.offset().top - 50 }, 500);
-		}
-	}
 
+		event.preventDefault();
+		$title.addClass('pc-field-error').after('<p class="description pc-message-error pc-message-error--title">Le titre est obligatoire</p>');
+
+	} else {
+
+		// custom field date
+		var $datePicker = $('.pc-date-picker:required'), dateRequired = false, $dateError = false;
+		if ( $datePicker.length > 0 ) {
+			$datePicker.each(function() {
+				if ( $(this).val() == '' ) {
+					if ( !$(this).hasClass('pc-field-error') ) {
+						$(this).addClass('pc-field-error').after('<p><em class="description pc-message-error">Ce champ est obligatoire</em></p>');
+					}
+					dateRequired = true;
+					if ( !$dateError ) { $dateError = $(this) };
+				} else if ( $(this).hasClass('pc-field-error') ) {
+					$(this).removeClass('pc-field-error').next('p').remove();
+				}
+			});
+			if ( dateRequired ) {
+				event.preventDefault();
+				$('html, body').animate({ scrollTop: $dateError.offset().top - 50 }, 500);
+			}
+		}
+		
+	}
 });
 
 

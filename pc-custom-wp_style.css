@@ -100,9 +100,9 @@ table.form-table + p.submit,
 
 /*----------  Alertes  ----------*/
 
-.pc-message { font-size:18px; }
-.pc-message_false { color: red; }
-.pc-field-alert { border:1px solid red !important; }
+.pc-message-error { color: red!important; }
+.pc-message-error--title { font-size:18px!important; }
+.pc-field-error { border:1px solid red !important; }
 
 
 /*=====  FIN Ajout  ======*/
