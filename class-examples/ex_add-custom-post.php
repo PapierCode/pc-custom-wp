@@ -44,6 +44,7 @@ $customPostArgs = array(
     'menu_position'     => 98,
     'menu_icon'         => 'dashicons-no',
     'supports'          => array( 'title', 'author', 'thumbnail', 'editor', 'revisions' ),
+    'show_in_nav_menus' => (wp_get_current_user()->roles[0] === 'administrator') ? true : false,
     'taxonomies'        => array( TAX_EXAMPLE_SLUG ),
     'rewrite'           => array( 'slug' => POST_EXAMPLE_SLUG )
 );
@@ -52,7 +53,7 @@ $customPostArgs = array(
 /*----------  Déclaration  ----------*/
 
 $customPost = new PC_Add_Custom_Post(
-    POST_EXAMPLE_SLUG,       // obligatoire, nom du custom post, sans caractères spéciaux ni espaces ni majuscules
+    POST_EXAMPLE_SLUG,  // obligatoire, nom du custom post, sans caractères spéciaux ni espaces ni majuscules
     $customPostLabels,  // obligatoire, textes d'interface
     $customPostArgs     // obligatoire, paramètres du custom post
 );
@@ -90,7 +91,8 @@ $customPostCustomTaxLabels = array(
 
 // vide = paramètres par défaut
 $customPostCustomTaxArgs = array(
-    'rewrite'                       => array( 'slug' => POST_EXAMPLE_SLUG.'/'.sanitize_title($customPostCustomTaxLabels['name']) )
+    'rewrite'   => array( 'slug' => POST_EXAMPLE_SLUG.'/'.sanitize_title($customPostCustomTaxLabels['name']) ),
+    'show_in_nav_menus' => (wp_get_current_user()->roles[0] === 'administrator') ? true : false,
 );
 
 
