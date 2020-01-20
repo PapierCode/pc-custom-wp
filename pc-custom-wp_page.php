@@ -1,12 +1,12 @@
 <?php
-
 /**
-*
-* Suppressions de fonctions
-* Attributs de page
-* SEO
-*
-**/
+ *
+ * Modification des pages
+ * 
+ ** Suppressions de fonctions
+ ** Attributs de page
+ *
+ */
 
 
 /*================================================
@@ -38,59 +38,64 @@ add_action( 'admin_menu', function () use($pcSettings) {
 =            Attributs de page            =
 =========================================*/
 
-// Remplace la metabox par défaut
+// si activée, remplace la metabox par défaut
+// cf. pc-custom-wp_script.js (alerte "Vérifiez les attributs de la page")
+// cf. pc-custom-wp.php (ajout d'une class css sur el body)
 
-add_action( 'admin_init', function() use($pcSettings) {
+if ( isset($pcSettings['page-model']) ) {
 
-    add_meta_box(                   
-        'pc-page-attributs',
-        'Attributs de la page',
-        'pc_metabox_attributes',
-        'page',
-        'side',
-        'low',
-        $pcSettings
-    );
+    add_action( 'admin_init', function() {
 
-} );
+        add_meta_box(                   
+            'pc-page-attributs',
+            'Attributs de la page',
+            'pc_page_metabox_attributes',
+            'page',
+            'side',
+            'low'
+        );
 
-function pc_metabox_attributes($post, $datas) {
+    } );
 
-    // ID page courante
-    $currentId = $post->ID;
+    function pc_page_metabox_attributes($post, $datas) {
 
-    /*----------  Parent  ----------*/
+        // ID page courante
+        $currentId = $post->ID;
 
-    if( isset($datas['args']['page-parent']) && wp_count_posts('page')->publish > 1 ) {
+        /*----------  Parent  ----------*/
+
+        // if( wp_count_posts('page')->publish > 1 ) {
+            
+        //     $currentParent = wp_get_post_parent_id($currentId);
+        //     echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id">Parent</label></p>';
+        //     wp_dropdown_pages(array(
+        //         'name'                  => 'parent_id',
+        //         'id'                    => 'parent_id',
+        //         'show_option_none'      => '(pas de parent)',
+        //         'show_option_value'     => '',
+        //         'exclude_tree'          => $currentId,
+        //         'selected'              => $currentParent
+        //     ));
+
+        // }
+
+
+        /*----------  Modèle de page  ----------*/
+
+        $currentTemplate = get_page_template_slug($currentId);
+        $allTemplates = get_page_templates();
+        ksort($allTemplates);
         
-        $currentParent = wp_get_post_parent_id($currentId);
-        echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id">Parent</label></p>';
-        wp_dropdown_pages(array(
-            'name'                  => 'parent_id',
-            'id'                    => 'parent_id',
-            'show_option_none'      => '(pas de parent)',
-            'show_option_value'     => '',
-            'exclude_tree'          => $currentId,
-            'selected'              => $currentParent
-        ));
+        echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="page_template">Modèle</label></p>';
+        echo '<select name="page_template" id="page_template"><option value="default">Modèle par défaut</option>';
+        foreach ($allTemplates as $name => $file) {
+            echo '<option value="'.$file.'"'.selected($currentTemplate,$file,false).'>'.$name.'</option>';
+        }
+        echo '</select>';
 
     }
 
-
-    /*----------  Modèle de page  ----------*/
-
-    $currentTemplate = get_page_template_slug($currentId);
-    $allTemplates = get_page_templates();
-    ksort($allTemplates);
-    
-    echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="page_template">Modèle</label></p>';
-    echo '<select name="page_template" id="page_template"><option value="default">Modèle par défaut</option>';
-    foreach ($allTemplates as $name => $file) {
-        echo '<option value="'.$file.'"'.selected($currentTemplate,$file,false).'>'.$name.'</option>';
-    }
-    echo '</select>';
-
-}
+} // FIN if $pcSettings['page-model']
 
 
 /*=====  FIN Attributs de page  ======*/

@@ -1,26 +1,17 @@
 <?php
-
 /**
-*
-* Tableau de bord
-*
-**/
+ * 
+ * Widgets du tableau de bord
+ * 
+ ** Suppressions
+ ** Ajout "Bienvenue"
+ *  
+ */
 
 
-/*=======================================
-=            Écran d'accueil            =
-=======================================*/
-
-remove_action( 'welcome_panel', 'wp_welcome_panel' );
-
-
-/*=====  FIN Écran d'accueil  ======*/
-
-/*===============================
-=            Widgets            =
-===============================*/
-
-/*----------  Suppressions  ----------*/
+/*====================================
+=            Suppressions            =
+====================================*/
 
 add_action( 'wp_dashboard_setup', function() use($pcSettings) {
 
@@ -42,7 +33,11 @@ add_action( 'wp_dashboard_setup', function() use($pcSettings) {
 });
 
 
-/*----------  Widget "Bienvenue"  ----------*/
+/*=====  FIN Suppressions  =====*/
+
+/*==========================================
+=            Widget "Bienvenue"            =
+==========================================*/
 
 add_action( 'wp_dashboard_setup', function() {
 
@@ -56,8 +51,18 @@ add_action( 'wp_dashboard_setup', function() {
 
 	function welcome_widget_content() {
 
-	    echo 'Bienvenue dans l\'administration du site <strong>'.get_bloginfo('name').'</strong>.';
+        echo '<p>Bienvenue dans l\'administration du site <strong>'.get_bloginfo('name').'</strong>.</p>';
+        
+        global $pcSettings;
+        if ( isset($pcSettings['help-manuals']) ) {
+            echo '<div class="welcome-manuals"><p>Documentation à télécharger :</p>';
+            echo '<ul>';
+            echo '<li><a href="'.plugin_dir_url( __FILE__ ).'files/papier-code-wp-manuel.pdf'.'" target="_blank">Manuel d\'utilisation de l\'administration</a></li>';
+            echo '<li><a href="'.plugin_dir_url( __FILE__ ).'files/papier-code-ecrire-pour-le-web.pdf'.'" target="_blank">Guide pour la rédaction et le référencement</a></li>';
+            echo '</ul></div>';
+        }
 
 	}
 
-/*=====  FIN of Widgets  ======*/
+
+/*=====  FIN Widget "Bienvenue"  =====*/

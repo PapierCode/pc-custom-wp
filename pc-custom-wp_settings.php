@@ -1,10 +1,9 @@
 <?php
-
 /**
-*
-* Réglages Papier Codé (page d'administration)
-*
-**/
+ *
+ * Réglages Papier Codé (page d'administration)
+ *
+ */
 
 
 add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
@@ -15,12 +14,15 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 	if ( !get_option( 'pc-settings-option' ) ) {
 
 		$optionsValues = array(
-			'tinymce-medias'			=> 1,
+			'tinymce-medias'		=> 1,
 			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,alignright,outdent,indent,|,link,unlink,|,media',
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 
-			'help-seo'					=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p>',
+			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p></p>',
+			'help-seo-social'		=> '<p>Pour l\'affichage de cette page sous sa forme résumée dans les résultats des moteurs de recherche et les réseaux sociaux.</p><p><strong>Remarques :<br/></strong>- si ces champs ne sont pas saisis, le titre de la page et les premiers mots du contenu sont utilisés,<br/>- si un visuel n\'est pas sélectionné (encart "Visuel" ci-dessus), le logo est utilisé.</p>',
+
+			'page-model'			=> 1,
 		);
 
 		add_option( 'pc-settings-option', $optionsValues ,'', 'no');
@@ -82,8 +84,8 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
-		        'title'     => 'Outils Google',
-		        'id'        => 'google-tools',
+		        'title'     => 'Google',
+		        'id'        => 'google',
 		        'prefix'    => 'google',
 		        'fields'    => array(
 		            array(
@@ -134,8 +136,8 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'fields'    => array(
 		            array(
 		                'type'      => 'checkbox',
-		                'label_for' => 'parent',
-		                'label'     => 'Sélection d\'un parent'
+		                'label_for' => 'model',
+		                'label'     => 'Sélection d\'un modèle'
 		            )
 		        )
 		    ),
@@ -147,8 +149,19 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		            array(
 		                'type'      => 'textarea',
 		                'label_for' => 'seo',
-		                'label'     => 'Metas Title & Description',
+		                'label'     => 'Metaboxe SEO <br/>(version précédente)',
 		        		'css'		=> 'width:100%;'
+					),
+		            array(
+		                'type'      => 'textarea',
+		                'label_for' => 'seo-social',
+		                'label'     => 'Metaboxe SEO',
+		        		'css'		=> 'width:100%;'
+					),
+					array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'manuals',
+						'label'     => 'Guides PDF à télécharger',
 		            )
 		        )
 		    ),
@@ -166,15 +179,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'type'      => 'checkbox',
 		                'label_for' => 'tax',
 		                'label'     => 'Catégories'
-		            ),
-		            array(
-		                'type'      => 'radio',
-		                'label_for' => 'tax-type',
-		                'label'     => 'Type de Catégories',
-		                'options'	=> array(
-		                		'Filtres' 	=> 'filtres',
-		                		'Pages'		=> 'pages'
-		                	)
 		            )
 		        )
 		    ),

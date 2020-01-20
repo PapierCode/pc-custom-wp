@@ -1,23 +1,22 @@
 <?php
-
 /**
-*
-* Tiny MCE
-*
-**/
+ *
+ * Tiny MCE
+ *
+ */
 
 
-/*===============================
-=            TinyMCE            =
-===============================*/
-
-/*----------  Plugin TinyMCE pour afficher les blocs dans le contenu  ----------*/
+/*----------  Plugins TinyMCE  ----------*/
 
 add_filter( 'mce_external_plugins', function( $plugins ) {
 
+    // afficher les blocs
     $plugins['visualblocks'] = plugin_dir_url( __FILE__ ).'tinymce/visualblocks/plugin.min.js';
+    // ajouter une ancre
     $plugins['pcanchor'] = plugin_dir_url( __FILE__ ).'tinymce/pc-plugin_anchor/pc-plugin_anchor.js';
+    // ajouter une vidéo
     $plugins['pcembed'] = plugin_dir_url( __FILE__ ).'tinymce/media/plugin.min.js';
+
     return $plugins;
 
 });
@@ -34,14 +33,14 @@ add_action( 'admin_init', function() {
 
 /*----------  Bouton Medias  ----------*/
 
-if ( !isset($pcSettings['tinymce-medias']) ) {
+if ( !isset( $pcSettings['tinymce-medias'] ) ) {
 
    add_action('admin_head', function() { remove_action( 'media_buttons', 'media_buttons' ); });
 
 }
 
 
-/*----------  Défaut  ----------*/
+/*----------  Configuration par défaut  ----------*/
 
 add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
@@ -68,13 +67,10 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pcSettings ) {
 
 // onglet texte seulement pour les administrateurs
 
-add_filter('wp_editor_settings', function ($settings) {
+add_filter( 'wp_editor_settings', function ($settings) {
 
-    if ( wp_get_current_user()->roles[0] == 'editor' ) { $settings['quicktags'] = false; }
+    if ( wp_get_current_user()->roles[0] != 'administrator' ) { $settings['quicktags'] = false; }
 
     return $settings;
 
-});
-
-
-/*=====  FIN TinyMCE  ======*/
+} );

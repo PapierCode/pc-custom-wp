@@ -6,6 +6,9 @@
 *
 **/
 
+/*======================================
+=            Classes utiles            =
+======================================*/
 
 .reset-btn {
 	border:none;
@@ -15,14 +18,22 @@
 	cursor: pointer;
 }
 
-/*=============================
-=            Ajout            =
-=============================*/
 
-/*----------  Page de connexion  ----------*/
+/*----------  Alertes  ----------*/
+
+.pc-message-error { color: red!important; }
+.pc-message-error--title { font-size:18px!important; }
+.pc-field-error { border:1px solid red !important; }
+
+
+/*=====  FIN Classes utiles  =====*/
+
+/*=========================================
+=            Page de connexion            =
+=========================================*/
 
 .login h1 a {
-	background-image: url(images/logo-login.png);
+	background-image: url(files/logo-login.png);
 	background-size: initial;
 	background-position: center top;
 	width:320px;
@@ -30,7 +41,29 @@
 }
 
 
-/*----------  Custom field : aperçu image  ----------*/
+/*=====  FIN Page de connexion  =====*/
+
+/*=================================
+=            Dashboard            =
+=================================*/
+
+/*----------  Widget Bienvenue  ----------*/
+
+.welcome-manuals p { margin-bottom: 0; }
+.welcome-manuals ul {
+	list-style-type: square;
+	padding-left:15px;
+	margin-top:5px;
+}
+
+
+/*=====  FIN Dashboard  =====*/
+
+/*=====================================
+=            Custom fields            =
+=====================================*/
+
+/*----------  Aperçu image  ----------*/
 
 .pc-media-preview {
 	display:flex;
@@ -58,54 +91,61 @@
 	background-color: #fff;
 	padding:5px 15px 5px 10px;
 }
-.pc-media-remove {
-	margin-left:5px!important;
-}
+.pc-media-remove { margin-left:5px!important; }
 
-/*----------  Custom field : modale lien  ----------*/
+
+/*----------  Modale lien  ----------*/
 
 .pc-modal-link #link-options,
 .pc-modal-link #wplink-link-existing-content
 { display:none; }
 
-.pc-modal-link .link-search-wrapper {
-	margin:10px 0 0 0 !important;
-}
-.pc-modal-link .query-results {
-	top:80px!important;
-}
+.pc-modal-link .link-search-wrapper { margin:10px 0 0 0 !important; }
+.pc-modal-link .query-results { top:80px!important; }
 
 
-/*----------  Page de config & tax  ----------*/
+/*=====  FIN Custom fields  =====*/
+
+/*=============================================
+=            Ajout / Modifications            =
+=============================================*/
 
 /* tax : supprime limite largeur du contenu */
-#edittag {
-	max-width: none ! important;
-}
+#edittag { max-width: none ! important; }
 
-/* config & tax : séparation des ensembles */
-table.form-table + h2, table.form-table + p.submit,
-.term-php form h2, .edit-tag-actions {
-	border-top: 2px dashed #333;
+ /* pages d'options */
+form[action="options.php"] h2,
+form[action="options.php"] p.submit,
+ /* édition d'une taxonomie */
+.term-php form h2,
+.edit-tag-actions
+{
+	border-top: 3px dotted #ccc;
 	padding:30px 0 0 0;
-	margin-top:30px;
+	margin-top:20px;
 }
 
 /* config & tax : position du btn submit */
-table.form-table + p.submit,
-.edit-tag-actions {
-	text-align: center;
+form[action="options.php"] p.submit,
+.edit-tag-actions
+{ text-align: center; }
+
+ /* page medias, alignement vertical */
+.upload-php .media-toolbar-secondary button { margin: 12px 10px 12px 0 !important; }
+
+/* modal image */
+.media-modal .actions { color: #F3F3F3; } /* séparateurs liens vers la page du fichier joint & plus de détails */
+.media-modal #media-attachment-date-filters {
+	width: auto !important;
+	max-width: none !important;
 }
+.media-modal .help { margin-top:0; }
+
+/* list des pages */
+.post-state { font-style: italic; }
 
 
-/*----------  Alertes  ----------*/
-
-.pc-message-error { color: red!important; }
-.pc-message-error--title { font-size:18px!important; }
-.pc-field-error { border:1px solid red !important; }
-
-
-/*=====  FIN Ajout  ======*/
+/*=====  FIN Ajout / Modifications  ======*/
 
 /*====================================
 =            Suppressions            =
@@ -117,41 +157,35 @@ table.form-table + p.submit,
 #media-attachment-filters	/* type de media */
 { display:none !important; }
 
-.upload-php .media-toolbar-secondary button /* alignement vertical */
-{ margin: 12px 10px 12px 0 !important; }
+
+/*----------  Medias modal  ----------*/
+
+.media-modal .media-frame-title + h2, /* titre "Actions" colonne gauche */
+.media-modal #menu-item-playlist, /* btn ajouter une playlist audio */
+.media-modal #menu-item-video-playlist, /* btn ajouter une playlist vidéo */
+.media-modal #menu-item-embed, /* btn ajouter à partir d'une adresse web */
+
+.media-modal #alt-text-description, /* aide champ texte alternatif */
+.media-modal [data-setting="title"], /* champ titre */
+.media-modal [data-setting="description"], /* champ description */
+
+.media-modal .attachment-display-settings .align, /* select alignement */
+.media-modal .attachment-display-settings .setting:nth-of-type(2), /* select alignement */
+.media-modal .actions a, /* Options media 	: liens vers la page du fichier joint & plus de détails */
+
+.media-modal .media-types-required-info, /* mention champs obligatoires */
+
+.media-modal .gallery-settings, /* options galerie */
+
+.media-modal .advanced-section, /* modification d'une image insérée, options avancées */
+.media-modal .setting-group, /* modification d'une image insérée, alignement */
+.media-modal .link-to /* modification d'une image insérée, lier à */
+
+{ display:none; }
 
 
-/*----------  Medias modal ajout  ----------*/
 
-.media-modal .attachment-display-settings div.setting, 	/* Options media 	: select lié à */
-.media-modal .attachment-display-settings .align, 		/* Options media 	: select alignement */
-.media-modal .actions a, 								/* Options media 	: liens vers la page du fichier joint & plus de détails */
-.media-modal .settings label:nth-child(7),				/* Options media 	: lien mise en ligne sur */
-.media-modal label[data-setting="title"], 				/* Options media 	: champ titre */
-.media-modal label[data-setting="description"], 		/* Options media 	: champ description */
-.media-modal .attachment-display-settings h2, 			/* Options media 	: titre réglages */
-.media-modal .media-menu .separator, 					/* Menu latéral 	: séparateurs */
-.media-modal .media-menu .separator:last-of-type + a, 	/* Menu latéral 	: lien insérer à partir d’une adresse web */
-.media-modal .gallery-settings, 						/* Options gallerie : all */
-.media-modal .media-types-required-info					/* Mention champs obligatoies */
-{ display:none !important; }
-
-.media-modal .actions { color: #F3F3F3; } /* séparateur liens vers la page du fichier joint & plus de détails */
-.media-modal #media-attachment-date-filters {
-	width: auto !important;
-	max-width: none !important;
-}
-
-
-/*----------  Medias modal modifications  ----------*/
-
-.media-modal .column-settings .align,
-.media-modal .column-settings .link-to,
-.media-modal .column-settings .advanced-section
-{ display:none !important; }
-
-
-/*----------  Icônes au clic sur une image  ----------*/
+/*----------  Icônes au clic sur une image dans le WYSIWYG  ----------*/
 
 .mce-inline-toolbar-grp [aria-label*="Align"],
 .mce-inline-toolbar-grp [aria-label="No alignment"]
@@ -171,9 +205,19 @@ table.form-table + p.submit,
 /* menus */
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),	/* Afficher description et XFN */
 .auto-add-pages, 													/* Ajoutez automatiquement des pages */
+.nav-menus-php .posttype-tabs li:nth-child(3),						/* onglet rechercher dans les metaboxes */
+.nav-tab-wrapper,													/* onglets modifier/gérer
 /* page commentaire */
 #filter-by-comment-type,			/* select type de commentaires */
-#filter-by-comment-type + input
+#filter-by-comment-type + input,
+/* profil */
+.user-rich-editing-wrap,
+.user-syntax-highlighting-wrap,
+.user-comment-shortcuts-wrap,
+.user-admin-bar-front-wrap,
+.user-url-wrap,
+#your-profile h2:nth-of-type(4),
+#your-profile table:nth-of-type(4)
 { display:none !important; }
 
 
@@ -183,16 +227,6 @@ a[href*="customize.php"] { display:none; }
 
 
 /*=====  FIN Suppression  ======*/
-
-/*====================================
-=            Modification            =
-====================================*/
-
-.media-modal .help {
-	margin-top:0;
-}
-
-/*=====  FIN Modification  ======*/
 
 /*===============================
 =            WYSIWYG            =
