@@ -36,6 +36,22 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
 		$pcSettingsContent = array(
 		    array(
+		        'title'     => 'Préformaté',
+		        'id'        => 'preform',
+		        'prefix'    => 'preform',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'select',
+		                'label_for' => 'theme',
+						'label'     => 'Version',
+						'options'	=> array(
+							'Classic' => 'classic',
+							'Fullscreen' => 'fullscreen'
+						)
+					)
+		        )
+		    ),
+		    array(
 		        'title'     => 'Développement',
 		        'id'        => 'dev',
 		        'prefix'    => 'dev',
