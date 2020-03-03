@@ -20,7 +20,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 
 			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p></p>',
-			'help-seo-social'		=> '<p>Pour l\'affichage de cette page sous sa forme résumée dans les résultats des moteurs de recherche et les réseaux sociaux.</p><p><strong>Remarques :<br/></strong>- si ces champs ne sont pas saisis, le titre de la page et les premiers mots du contenu sont utilisés,<br/>- si un visuel n\'est pas sélectionné (encart "Visuel" ci-dessus), le logo est utilisé.</p>',
 
 			'page-model'			=> 1,
 		);
@@ -165,13 +164,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		            array(
 		                'type'      => 'textarea',
 		                'label_for' => 'seo',
-		                'label'     => 'Metaboxe SEO <br/>(version précédente)',
-		        		'css'		=> 'width:100%;'
-					),
-		            array(
-		                'type'      => 'textarea',
-		                'label_for' => 'seo-social',
-		                'label'     => 'Metaboxe SEO',
+		                'label'     => 'Metaboxe SEO <br/>(compatibilité)',
 		        		'css'		=> 'width:100%;'
 					),
 					array(
