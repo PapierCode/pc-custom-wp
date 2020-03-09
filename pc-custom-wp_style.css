@@ -198,7 +198,6 @@ form[action="options.php"] p.submit,
 { display:none; }
 
 
-
 /*----------  Icônes au clic sur une image dans le WYSIWYG  ----------*/
 
 .mce-inline-toolbar-grp [aria-label*="Align"],
@@ -304,7 +303,7 @@ a[href*="customize.php"] { display:none; }
 	position: relative;
 }
 .mce-visualblocks .gallery:after {
-	content: "Gallerie d'images";
+	content: "Galerie d'images";
 	font-family: Arial, sans-serif;
 	text-transform: uppercase;
 	font-weight: 700;
