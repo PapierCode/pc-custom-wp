@@ -12,7 +12,7 @@
         editor.addButton( 'pcanchor', {
 
             title: 'Ajouter/supprimer une ancre',
-            icon: 'anchor',
+            icon:'anchor',
             onclick: function() {
 
             	if ( jQuery( editor.selection.getNode() ).attr( 'id' ) =='tinymce' ) {
