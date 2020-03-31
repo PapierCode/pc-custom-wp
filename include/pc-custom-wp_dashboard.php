@@ -13,7 +13,7 @@
 =            Suppressions            =
 ====================================*/
 
-add_action( 'wp_dashboard_setup', function() use($pcSettings) {
+add_action( 'wp_dashboard_setup', function() use($pc_custom_settings) {
 
     // wordpress
     remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );   		// Right Now
@@ -23,7 +23,7 @@ add_action( 'wp_dashboard_setup', function() use($pcSettings) {
     remove_meta_box( 'dashboard_secondary', 'dashboard', 'side' );          // Other WordPress News
     remove_meta_box( 'dashboard_incoming_links','dashboard', 'normal' );    // Incoming Links
     remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );          // Plugins
-    if ( !isset($pcSettings['comments-menu']) ) {
+    if ( !isset($pc_custom_settings['comments-menu']) ) {
         remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );     // activity
     }
 
@@ -53,8 +53,8 @@ add_action( 'wp_dashboard_setup', function() {
 
         echo '<p>Bienvenue dans l\'administration du site <strong>'.get_bloginfo('name').'</strong>.</p>';
         
-        global $pcSettings;
-        if ( isset($pcSettings['help-manuals']) ) {
+        global $pc_custom_settings;
+        if ( isset($pc_custom_settings['help-manuals']) ) {
             echo '<div class="welcome-manuals"><p>Documentation à télécharger :</p>';
             echo '<ul>';
             echo '<li><a href="'.plugin_dir_url( __FILE__ ).'files/papier-code-wp-manuel.pdf'.'" target="_blank">Manuel d\'utilisation de l\'administration</a></li>';

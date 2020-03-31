@@ -13,7 +13,7 @@
 =            Modifications du menu            =
 =============================================*/
 
-add_action( 'admin_menu', function() use($pcSettings) {
+add_action( 'admin_menu', function() use($pc_custom_settings) {
 
 	global $menu;
 	global $submenu;
@@ -38,7 +38,7 @@ add_action( 'admin_menu', function() use($pcSettings) {
 	unset($submenu['themes.php'][10]);						// sous-menu Menus
 
 	// en option la page Commentaires
-	if ( !isset($pcSettings['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
+	if ( !isset($pc_custom_settings['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
 
     // déplace l'accès aux menus
 	$menu[31] = array(
@@ -64,11 +64,9 @@ add_action( 'admin_menu', function() use($pcSettings) {
 =======================================*/
 
 add_action( 'admin_init', function() {
-
-    // objet role
+	
+    // active le menu apparence pour l'accès aux menus
     $role = get_role( 'editor' );
-    // active le menu apparence
-    // !!! valeur enregistrée en bdd, utiliser remove_cap pour inverser
     $role->add_cap( 'edit_theme_options' );
 
 });

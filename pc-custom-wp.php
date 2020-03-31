@@ -23,9 +23,9 @@ Author: Papier Codé
 
 /*----------  Réglages projets  ----------*/
 
-include 'pc-custom-wp_settings.php';
+include 'include/pc-custom-wp_settings.php';
 
-$pcSettings = get_option( 'pc-settings-option' );   // cf. fichier ci-dessus
+$pc_custom_settings = get_option( 'pc-settings-option' );   // cf. fichier ci-dessus
 
 
 /*----------  JS & CSS  ----------*/
@@ -42,29 +42,43 @@ add_action( 'admin_enqueue_scripts', function() {
 });
 
 
+/*----------  Classes CSS  utiles  ----------*/
+
+add_filter( 'admin_body_class', function( $classes ) use ( $pc_custom_settings ) {
+
+    // pour masquer certaines actions
+    if ( !isset( $pc_custom_settings['seo-rewrite-url'] ) ) { $classes .= ' no-url-rewriting'; }
+
+    return $classes;
+
+});
+
+
 /*----------  Modules  ----------*/
 
 // page de connexion
-include 'pc-custom-wp_login.php';
+include 'include/pc-custom-wp_login.php';
 // diverses modifications de l'admin
-include 'pc-custom-wp_various.php';
+include 'include/pc-custom-wp_various.php';
 // dashboard
-include 'pc-custom-wp_dashboard.php';
+include 'include/pc-custom-wp_dashboard.php';
 // navigation
-include 'pc-custom-wp_menu.php';
+include 'include/pc-custom-wp_menu.php';
 // page
-include 'pc-custom-wp_page.php';
+include 'include/pc-custom-wp_page.php';
+// sauvegarde post
+include 'include/pc-custom-wp_save-post.php';
 // Tiny MCE
-include 'pc-custom-wp_tinymce.php';
+include 'include/pc-custom-wp_tinymce.php';
 // medias
-include 'pc-custom-wp_medias.php';
+include 'include/pc-custom-wp_medias.php';
 
 
 /*----------  Custom Class exemples  ----------*/
 
-add_action('plugins_loaded', function() use ($pcSettings) { // en attente du plugin [PC] Tools
+add_action('plugins_loaded', function() use ($pc_custom_settings) { // en attente du plugin [PC] Tools
 
-    if ( isset( $pcSettings['dev-class-examples'] ) ) {
+    if ( isset( $pc_custom_settings['dev-class-examples'] ) ) {
 
         include 'class-examples/ex_add-custom-post.php';
         include 'class-examples/ex_add-metabox.php';
@@ -82,51 +96,6 @@ add_action('plugins_loaded', function() use ($pcSettings) { // en attente du plu
 =            Classes CSS particulières            =
 =================================================*/
 
-add_filter( 'admin_body_class', function( $classes ) use ( $pcSettings ) {
-
-    // pour du CSS
-    if ( !isset( $pcSettings['seo-rewrite-url'] ) ) { $classes .= ' no-url-rewriting'; }
-
-    return $classes;
-
-});
-
 
 
 /*=====  FIN Classes CSS particulières  =====*/
-
-/*========================================================
-=            Mise à jour slug à la sauvegarde            =
-========================================================*/
-
-if ( !isset($pcSettings['seo-rewrite-url']) ) {
-
-    add_action( 'save_post', 'pc_update_slug' );
-
-        function pc_update_slug( $post_id ) {
-
-            // si ce n'est pas une révision
-            if ( ! wp_is_post_revision( $post_id ) ) {
-
-                // prévention contre une boucle infinie 1/2
-                remove_action( 'save_post', 'pc_update_slug' );
-
-				$post_title = get_the_title( $post_id) ;
-				$post_name = ( $post_title != '' ) ? sanitize_title( $post_title ) : $post_id;
-
-                // mise à jour slug
-                wp_update_post( array(
-                    'ID' => $post_id,
-                    'post_name' => $post_name
-                ));
-
-                // prévention contre une boucle infinie 2/2
-                add_action( 'save_post', 'pc_update_slug' );
-
-            }
-        }
-
-}
-
-
-/*=====  FIN Mise à jour slug à la sauvegarde  ======*/

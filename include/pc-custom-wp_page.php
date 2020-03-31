@@ -22,9 +22,9 @@ add_action( 'init', function() {
 });
 
 
-add_action( 'admin_menu', function () use($pcSettings) {
+add_action( 'admin_menu', function () use($pc_custom_settings) {
         
-    if ( !isset($pcSettings['seo-rewrite-url']) ) {
+    if ( !isset($pc_custom_settings['seo-rewrite-url']) ) {
         remove_meta_box( 'slugdiv', array('page'), 'normal' );      // identifiant   
     }
     remove_meta_box( 'pageparentdiv', array('page'), 'normal' );    // attributs   
@@ -38,7 +38,7 @@ add_action( 'admin_menu', function () use($pcSettings) {
 =            Sélection d'un modèle            =
 =============================================*/
 
-if ( isset($pcSettings['page-template']) ) {
+if ( isset($pc_custom_settings['page-template']) ) {
 
     add_action( 'admin_init', function() {
 
@@ -55,7 +55,7 @@ if ( isset($pcSettings['page-template']) ) {
 
     function pc_page_metabox_template($post, $datas) {
 
-        $currentTemplate = get_page_template_slug($currentId);
+        $currentTemplate = get_page_template_slug( $post->ID );
         $allTemplates = get_page_templates();
         ksort($allTemplates);
         
@@ -68,7 +68,7 @@ if ( isset($pcSettings['page-template']) ) {
 
     }
 
-} // FIN if $pcSettings['page-model']
+} // FIN if $pc_custom_settings['page-model']
 
 
 /*=====  FIN Sélection d'un modèle  ======*/

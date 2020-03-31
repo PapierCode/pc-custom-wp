@@ -21,7 +21,7 @@ add_action( 'after_setup_theme', function() {
 
 });
 
-/*----------  Aidee pour les champs d'images  ----------*/
+/*----------  Aide pour les champs d'images  ----------*/
 
 add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
 
