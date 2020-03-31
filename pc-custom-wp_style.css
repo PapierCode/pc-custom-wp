@@ -36,7 +36,6 @@
 /*----------  Alertes  ----------*/
 
 .pc-message-error { color: red!important; }
-.pc-message-error--title { font-size:18px!important; }
 .pc-field-error { border:1px solid red !important; }
 
 

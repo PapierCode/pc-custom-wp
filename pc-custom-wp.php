@@ -84,13 +84,8 @@ add_action('plugins_loaded', function() use ($pcSettings) { // en attente du plu
 
 add_filter( 'admin_body_class', function( $classes ) use ( $pcSettings ) {
 
-    $currentScreen = get_current_screen();
-
     // pour du CSS
     if ( !isset( $pcSettings['seo-rewrite-url'] ) ) { $classes .= ' no-url-rewriting'; }
-
-    // pour du JS
-    if ( isset( $pcSettings['page-parent'] ) && $currentScreen->id == 'page' ) { $classes .= ' page-parent-select'; }
 
     return $classes;
 
@@ -108,18 +103,21 @@ if ( !isset($pcSettings['seo-rewrite-url']) ) {
 
     add_action( 'save_post', 'pc_update_slug' );
 
-        function pc_update_slug( $postId ) {
+        function pc_update_slug( $post_id ) {
 
             // si ce n'est pas une révision
-            if ( ! wp_is_post_revision( $postId ) ) {
+            if ( ! wp_is_post_revision( $post_id ) ) {
 
                 // prévention contre une boucle infinie 1/2
                 remove_action( 'save_post', 'pc_update_slug' );
 
+				$post_title = get_the_title( $post_id) ;
+				$post_name = ( $post_title != '' ) ? sanitize_title( $post_title ) : $post_id;
+
                 // mise à jour slug
                 wp_update_post( array(
-                    'ID' => $postId,
-                    'post_name' => sanitize_title(get_the_title($postId))
+                    'ID' => $post_id,
+                    'post_name' => $post_name
                 ));
 
                 // prévention contre une boucle infinie 2/2

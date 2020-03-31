@@ -69,7 +69,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		    ),
 		    array(
 		        'title'     => 'TinyMCE',
-		        'id'        => 'wp-config-tinymce',
+		        'id'        => 'tinymce',
 		        'desc'      => 'Configuration par défaut.',
 		        'prefix'    => 'tinymce',
 		        'fields'    => array(
@@ -146,19 +146,19 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		    ),
 		    array(
 		        'title'     => 'Pages',
-		        'id'        => 'page-config',
+		        'id'        => 'page',
 		        'prefix'    => 'page',
 		        'fields'    => array(
 		            array(
 		                'type'      => 'checkbox',
-		                'label_for' => 'model',
+		                'label_for' => 'template',
 		                'label'     => 'Sélection d\'un modèle'
 		            )
 		        )
 		    ),
 		    array(
 		        'title'     => 'Help',
-		        'id'        => 'help-txt',
+		        'id'        => 'help',
 		        'prefix'    => 'help',
 		        'fields'    => array(
 		            array(
@@ -176,7 +176,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		    ),
 		    array(
 				'title'     => 'Actualités',
-		        'id'        => 'news-config',
+		        'id'        => 'news',
 		        'prefix'    => 'news',
 		        'fields'    => array(
 		            array(
@@ -193,7 +193,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		    ),
 		    array(
 				'title'     => 'SEO',
-		        'id'        => 'seo-config',
+		        'id'        => 'seo',
 		        'prefix'    => 'seo',
 		        'fields'    => array(
 		            array(
@@ -205,7 +205,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		    ),
 		    array(
 				'title'     => 'Commentaires',
-		        'id'        => 'comments-config',
+		        'id'        => 'comments',
 		        'prefix'    => 'comments',
 		        'fields'    => array(
 		            array(

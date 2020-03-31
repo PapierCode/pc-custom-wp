@@ -34,22 +34,18 @@ add_action( 'admin_menu', function () use($pcSettings) {
 
 /*=====  FIN Suppression de fonctions  ======*/
 
-/*=========================================
-=            Attributs de page            =
-=========================================*/
+/*=============================================
+=            Sélection d'un modèle            =
+=============================================*/
 
-// si activée, remplace la metabox par défaut
-// cf. pc-custom-wp_script.js (alerte "Vérifiez les attributs de la page")
-// cf. pc-custom-wp.php (ajout d'une class css sur el body)
-
-if ( isset($pcSettings['page-model']) ) {
+if ( isset($pcSettings['page-template']) ) {
 
     add_action( 'admin_init', function() {
 
         add_meta_box(                   
-            'pc-page-attributs',
-            'Attributs de la page',
-            'pc_page_metabox_attributes',
+            'pc-page-template',
+            'Modèle de la page',
+            'pc_page_metabox_template',
             'page',
             'side',
             'low'
@@ -57,30 +53,7 @@ if ( isset($pcSettings['page-model']) ) {
 
     } );
 
-    function pc_page_metabox_attributes($post, $datas) {
-
-        // ID page courante
-        $currentId = $post->ID;
-
-        /*----------  Parent  ----------*/
-
-        // if( wp_count_posts('page')->publish > 1 ) {
-            
-        //     $currentParent = wp_get_post_parent_id($currentId);
-        //     echo '<p class="post-attributes-label-wrapper"><label class="post-attributes-label" for="parent_id">Parent</label></p>';
-        //     wp_dropdown_pages(array(
-        //         'name'                  => 'parent_id',
-        //         'id'                    => 'parent_id',
-        //         'show_option_none'      => '(pas de parent)',
-        //         'show_option_value'     => '',
-        //         'exclude_tree'          => $currentId,
-        //         'selected'              => $currentParent
-        //     ));
-
-        // }
-
-
-        /*----------  Modèle de page  ----------*/
+    function pc_page_metabox_template($post, $datas) {
 
         $currentTemplate = get_page_template_slug($currentId);
         $allTemplates = get_page_templates();
@@ -98,4 +71,4 @@ if ( isset($pcSettings['page-model']) ) {
 } // FIN if $pcSettings['page-model']
 
 
-/*=====  FIN Attributs de page  ======*/
+/*=====  FIN Sélection d'un modèle  ======*/
