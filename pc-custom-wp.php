@@ -32,9 +32,9 @@ $pc_custom_settings = get_option( 'pc-settings-option' );   // cf. fichier ci-de
 add_action( 'admin_enqueue_scripts', function() {
 
     // scripts pour admin
-    wp_enqueue_script( 'pc-custom-wp-scripts', plugin_dir_url( __FILE__ ).'pc-custom-wp_script.js' );
+    wp_enqueue_script( 'pc-custom-wp-scripts', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_script.js' );
     // css pour admin
-    wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).'pc-custom-wp_style.css' );
+    wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_style.css' );
     // media uploader
     wp_enqueue_media();
 
