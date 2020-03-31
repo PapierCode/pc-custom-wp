@@ -175,7 +175,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
-				'title'     => 'Actualités',
+				'title'     => 'Actualités (compatibilité)',
 		        'id'        => 'news',
 		        'prefix'    => 'news',
 		        'fields'    => array(
