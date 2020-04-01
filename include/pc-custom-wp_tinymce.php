@@ -6,7 +6,7 @@
  */
 
 
-/*----------  Plugins TinyMCE  ----------*/
+/*----------  Plugins  ----------*/
 
 add_filter( 'mce_external_plugins', function( $plugins ) {
 
@@ -65,7 +65,8 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pc_custom_settin
 
 });
 
-// onglet texte seulement pour les administrateurs
+
+/*----------  Onglet texte seulement pour les administrateurs  ----------*/
 
 add_filter( 'wp_editor_settings', function ($settings) {
 

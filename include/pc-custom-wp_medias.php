@@ -6,7 +6,7 @@
  */
 
 
-/*----------  Masquer les les boutons d'ajout de média  ----------*/
+/*----------  Masquer les boutons d'ajout de média  ----------*/
 
 add_filter( 'media_library_show_video_playlist', function () { return false; } );
 add_filter( 'media_library_show_audio_playlist', function () { return false; } );

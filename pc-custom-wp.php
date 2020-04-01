@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
@@ -8,44 +7,24 @@ Version: 1.0.0
 Author: Papier Codé
 */
 
-/**
- *
- ** Include
- ** Classes CSS particulières
- ** Mise à jour slug à la sauvegarde
- *
- */
-
-/*===============================
-=            Include            =
-===============================*/
 
 /*----------  Réglages projets  ----------*/
 
 include 'include/pc-custom-wp_settings.php';
+$pc_custom_settings = get_option( 'pc-settings-option' );
 
-$pc_custom_settings = get_option( 'pc-settings-option' );   // cf. fichier ci-dessus
 
-
-/*----------  JS & CSS  ----------*/
+/*----------  CSS  ----------*/
 
 add_action( 'admin_enqueue_scripts', function() {
-
-    // scripts pour admin
-    wp_enqueue_script( 'pc-custom-wp-scripts', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_script.js' );
-    // css pour admin
-    wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_style.css' );
-    // media uploader
-    wp_enqueue_media();
+	
+	wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_style.css' );
 
 });
 
-
-/*----------  Classes CSS  utiles  ----------*/
-
 add_filter( 'admin_body_class', function( $classes ) use ( $pc_custom_settings ) {
 
-    // pour masquer certaines actions
+    // pour masquer l'édition du permalien
     if ( !isset( $pc_custom_settings['seo-rewrite-url'] ) ) { $classes .= ' no-url-rewriting'; }
 
     return $classes;
@@ -63,10 +42,8 @@ include 'include/pc-custom-wp_various.php';
 include 'include/pc-custom-wp_dashboard.php';
 // navigation
 include 'include/pc-custom-wp_menu.php';
-// page
-include 'include/pc-custom-wp_page.php';
-// sauvegarde post
-include 'include/pc-custom-wp_save-post.php';
+// articles
+include 'include/pc-custom-wp_posts.php';
 // Tiny MCE
 include 'include/pc-custom-wp_tinymce.php';
 // medias
@@ -87,14 +64,3 @@ add_action('plugins_loaded', function() use ($pc_custom_settings) { // en attent
     }
 
 });
-
-
-/*=====  FIN Include  ======*/
-
-/*=================================================
-=            Classes CSS particulières            =
-=================================================*/
-
-
-
-/*=====  FIN Classes CSS particulières  =====*/

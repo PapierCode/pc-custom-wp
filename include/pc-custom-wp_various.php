@@ -5,6 +5,7 @@
  * 
  */
 
+
 /*----------  Masquer l'écran d'accueil  ----------*/
 
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
@@ -16,7 +17,7 @@ add_action( 'admin_bar_menu', 'pc_remove_adminbar_items', 999 );
 
 	function pc_remove_adminbar_items( $wp_admin_bar ) {
 
-		// pc_display_var($wp_admin_bar);
+		// pc_var($wp_admin_bar);
 		// return;
 
 	    $wp_admin_bar->remove_node( 'wp-logo' ); // logo WP
@@ -50,19 +51,6 @@ add_action( 'admin_head', function() {
 /*----------  Désactiver l'éditeur de code  ----------*/
 
 define( 'DISALLOW_FILE_EDIT', true );
-
-
-/*----------  Masquer le lien "Modifications rapide" dans les listes de pages et posts  ----------*/
-
-add_filter( 'post_row_actions', 'pc_remove_quick_link', 10, 2 );
-add_filter( 'page_row_actions', 'pc_remove_quick_link', 10, 2 );
-
-    function pc_remove_quick_link( $actions ) {
-
-        unset( $actions['inline hide-if-no-js'] );
-        return $actions;
-
-    }
 
     
 /*----------  Désactiver la mention en pied de apge  ----------*/

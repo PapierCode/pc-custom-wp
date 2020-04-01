@@ -218,7 +218,7 @@ form[action="options.php"] p.submit,
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),	/* Afficher description et XFN */
 .auto-add-pages, 													/* Ajoutez automatiquement des pages */
 .nav-menus-php .posttype-tabs li:nth-child(3),						/* onglet rechercher dans les metaboxes */
-.nav-tab-wrapper,													/* onglets modifier/gérer
+.av-menus-php .nav-tab-wrapper,													/* onglets modifier/gérer
 /* page commentaire */
 #filter-by-comment-type,			/* select type de commentaires */
 #filter-by-comment-type + input,
