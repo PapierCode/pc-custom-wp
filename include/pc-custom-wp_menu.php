@@ -18,7 +18,7 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 
 		/*----------  Pour les utilisateurs non administrateur  ----------*/
 
-		if ( !current_user_can('update_core') ) {
+		if ( !current_user_can('adminstrator') ) {
 
 			remove_menu_page( 'tools.php' ); 	// menu Outils
 			remove_menu_page( 'themes.php' );	// menu Apparence

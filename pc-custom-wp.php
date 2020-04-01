@@ -48,6 +48,8 @@ include 'include/pc-custom-wp_posts.php';
 include 'include/pc-custom-wp_tinymce.php';
 // medias
 include 'include/pc-custom-wp_medias.php';
+// wp_head public
+include 'include/pc-custom-wp_head.php';
 
 
 /*----------  Custom Class exemples  ----------*/
