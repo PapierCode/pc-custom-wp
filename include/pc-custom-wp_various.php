@@ -43,7 +43,7 @@ remove_action( 'wp_head', 'wp_generator' );
 
 add_action( 'admin_head', function() {
 
-	if ( !current_user_can( 'update_core' ) ) { remove_action( 'admin_notices', 'update_nag', 3 ); }
+	if ( !current_user_can( 'administrator' ) ) { remove_action( 'admin_notices', 'update_nag', 3 ); }
 
 }, 1 );
 

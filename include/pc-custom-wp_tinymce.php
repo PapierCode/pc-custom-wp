@@ -70,7 +70,7 @@ add_filter( 'tiny_mce_before_init', function( $settings ) use( $pc_custom_settin
 
 add_filter( 'wp_editor_settings', function ($settings) {
 
-    if ( wp_get_current_user()->roles[0] != 'administrator' ) { $settings['quicktags'] = false; }
+    if ( !current_user_can('administrator') ) { $settings['quicktags'] = false; }
 
     return $settings;
 
