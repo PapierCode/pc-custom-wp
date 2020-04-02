@@ -24,48 +24,44 @@ if ( !is_admin() ) {
 
 	/*----------  JS embed  ----------*/
 
-	add_action( 'wp_footer', 'pc_remove_wp_embed' );
+	add_action( 'wp_head', 'pc_remove_wp_embed', 20 );
 	
 		function pc_remove_wp_embed(){
 
 			if ( !current_user_can('administrator') ) { wp_deregister_script( 'wp-embed' ); }
 	
 		}
-		
+
 
 	/*----------  Nettoyage des option de wordpress  ----------*/
 
-	remove_action( 'wp_head', 'rel_canonical' ); // lien canonical
+	remove_action( 'wp_head', 'rel_canonical', 10 ); // lien canonical
 	remove_action( 'wp_head', 'wp_resource_hints', 2 ); // lien prefetch
 
 	// flux
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	remove_action( 'wp_head', 'feed_links', 2 );
-	remove_action( 'wp_head', 'rsd_link' );
-	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'rsd_link', 10 );
+	remove_action( 'wp_head', 'wlwmanifest_link', 10 );
 
 	// divers
-	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-	remove_action( 'wp_head', 'rest_output_link_wp_head' );
-	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 ); // link prev/next
 
 
 	/*----------  Suppression des Emoji  ----------*/
 
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script', 10 ); // admin
+	remove_action( 'admin_print_styles', 'print_emoji_styles', 10 ); // admin
 
 
     /*----------  CSS Block Editor  ----------*/
 
-    add_action( 'wp_enqueue_scripts', 'pc_remove_block_editor_css', 100 );
-
-        function pc_remove_block_editor_css() {
-            wp_dequeue_style( 'wp-block-library' );
-        }
+    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles', 10 );
         
 
     /*----------  Tags attributs  ----------*/
