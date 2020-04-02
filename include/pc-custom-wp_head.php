@@ -28,7 +28,12 @@ if ( !is_admin() ) {
 	
 		function pc_remove_wp_embed(){
 
-			if ( !current_user_can('administrator') ) { wp_deregister_script( 'wp-embed' ); }
+			if ( !current_user_can('administrator') ) {
+				
+				wp_deregister_script( 'wp-embed' );
+				wp_dequeue_script( 'wp-embed' );
+			
+			}
 	
 		}
 

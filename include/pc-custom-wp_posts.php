@@ -20,7 +20,9 @@ add_action( 'init', function() {
 		
 	remove_post_type_support( 'page', 'comments' ); 			// commentaires		
 	remove_post_type_support( 'page', 'custom-fields' );		// champs personnalisés	
-    remove_post_type_support( 'page', 'trackbacks' );           // rétroliens
+	remove_post_type_support( 'page', 'trackbacks' );           // rétroliens
+	remove_post_type_support( 'page', 'revisions' );			// révisions
+	remove_post_type_support( 'page', 'author' );				// auteur
 
 });
 
@@ -111,6 +113,22 @@ if ( !isset( $pc_custom_settings['seo-rewrite-url'] ) ) {
 
 
 /*=====  FIN Enregistrement sans titre  =====*/
+
+/*===========================================================
+=            Désactivation sauvegarde autmatique            =
+===========================================================*/
+
+add_action( 'wp_print_scripts','pc_disable_autosave', 20 );
+
+	function pc_disable_autosave() {
+		
+		wp_deregister_script( 'autosave' );
+		wp_dequeue_script( 'autosave' );
+	
+	}
+
+
+/*=====  FIN Désactivation sauvegarde autmatique  =====*/
 
 /*========================================
 =            Options de liste            =
