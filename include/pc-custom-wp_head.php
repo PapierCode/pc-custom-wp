@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 
  * Nettoyage wp_head() & wp_footer()
@@ -7,8 +6,25 @@
  */
 
 
-// si ce n'est pas l'adminstration
-if ( !is_admin() ) {
+/*=============================
+=            Admin            =
+=============================*/
+
+if ( is_admin() ) {
+
+	/*----------  Suppression des Emoji  ----------*/
+	
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script', 10 ); // admin
+	remove_action( 'admin_print_styles', 'print_emoji_styles', 10 ); // admin
+
+
+/*=====  FIN Admin  =====*/
+
+/*==============================
+=            Public            =
+==============================*/
+
+} else {
 
 	/*----------  Admin bar  ----------*/
 	
@@ -60,8 +76,6 @@ if ( !is_admin() ) {
 
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script', 10 ); // admin
-	remove_action( 'admin_print_styles', 'print_emoji_styles', 10 ); // admin
 
 
     /*----------  CSS Block Editor  ----------*/
@@ -77,6 +91,7 @@ if ( !is_admin() ) {
             $tag = str_replace( "type='text/javascript' ", '', $tag );
             return str_replace( "'", '"', $tag );
         }
- 
 
 }
+
+/*=====  FIN Public  =====*/
