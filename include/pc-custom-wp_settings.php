@@ -99,11 +99,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'prefix'    => 'google',
 		        'fields'    => array(
 		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'analytics-active',
-		                'label'     => 'Analytics activation'
-		            ),
-		            array(
 		                'type'      => 'text',
 		                'label_for' => 'analytics-code',
 		                'label'     => 'Analytics code de suivi'
@@ -127,11 +122,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'id'        => 'matomo',
 		        'prefix'    => 'matomo',
 		        'fields'    => array(
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'analytics-active',
-		                'label'     => 'Activer les statistiques'
-					),
 					array(
 		                'type'      => 'text',
 		                'label_for' => 'analytics-code',
