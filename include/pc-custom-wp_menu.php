@@ -40,7 +40,7 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 		if ( !isset($pc_custom_settings['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
 
 		// déplace l'accès aux menus
-		$menu[31] = array(
+		$menu[58] = array(
 			'Menus',				// Nom
 			'edit_pages',			// droits
 			'nav-menus.php',		// cible
