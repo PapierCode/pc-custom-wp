@@ -76,6 +76,21 @@
 =            Custom fields            =
 =====================================*/
 
+/*----------  Aide  ----------*/
+
+.pc-metabox-help {
+	padding:10px;
+	margin-top:12px;
+	border:1px dashed #aaa;
+}
+.pc-metabox-help > * {
+	margin:5px 0 0;
+}
+.pc-metabox-help > :first-child {
+	margin:0;
+}
+
+
 /*----------  Aperçu image  ----------*/
 
 .pc-media-preview {
