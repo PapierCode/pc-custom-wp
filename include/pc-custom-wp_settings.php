@@ -13,9 +13,9 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 	// si l'option n'existe pas
 	if ( !get_option( 'pc-settings-option' ) ) {
 
-		$optionsValues = array(
+		$options_values = array(
 			'tinymce-medias'		=> 1,
-			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,|,link,unlink,|,media',
+			'tinymce-toolbar1'		=> 'fullscreen,undo,redo,removeformat,|,formatselect,bullist,numlist,blockquote,|,styleselect,bold,italic,strikethrough,superscript,charmap,|,alignleft,aligncenter,|,link,unlink,|,media',
 			'tinymce-toolbar2'		=> '',
 			'tinymce-block'			=> 'Paragraph=p;Heading 2=h2;Heading 3=h3',
 
@@ -24,7 +24,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'page-model'			=> 1,
 		);
 
-		add_option( 'pc-settings-option', $optionsValues ,'', 'no');
+		add_option( 'pc-settings-option', $options_values ,'', 'no');
 
 	}
 
