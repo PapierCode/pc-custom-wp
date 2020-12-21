@@ -196,9 +196,11 @@ form[action="options.php"] p.submit,
 .media-modal #alt-text-description, /* aide champ texte alternatif */
 .media-modal [data-setting="title"], /* champ titre */
 .media-modal [data-setting="description"], /* champ description */
+.media-modal [data-setting="url"], /* champ description */
 
 .media-modal .attachment-display-settings .align, /* select alignement */
-.media-modal .attachment-display-settings .setting:nth-of-type(2), /* select alignement */
+.media-modal .attachment-display-settings label[for="attachment-display-settings-link-to"], /* select alignement */
+.media-modal .attachment-display-settings label[for="attachment-display-settings-link-to"] + select, /* select alignement */
 .media-modal .actions a, /* Options media 	: liens vers la page du fichier joint & plus de détails */
 
 .media-modal .media-types-required-info, /* mention champs obligatoires */
@@ -227,7 +229,6 @@ form[action="options.php"] p.submit,
 .metabox-prefs .editor-expand,			/* Options d'écran		: éditeur plein écran */
 .no-url-rewriting #edit-slug-buttons,	/* Permalien			: bouton modifier */
 /* catégories */
-.term-parent-wrap, 				/* sélection parent */
 .term-description-wrap, 		/* description */
 /* menus */
 .nav-menus-php .metabox-prefs:nth-child(2) label:nth-child(n+5),	/* Afficher description et XFN */
