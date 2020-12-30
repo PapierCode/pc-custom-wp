@@ -69,3 +69,8 @@ add_action( 'admin_menu', function() {
 	remove_filter( 'update_footer', 'core_update_footer' );
 
 });
+
+
+/*----------  Désactive les mots de passe d'application (profil)  ----------*/
+
+add_filter( 'wp_is_application_passwords_available', '__return_false' );

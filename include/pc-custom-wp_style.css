@@ -227,6 +227,7 @@ form[action="options.php"] p.submit,
 .taxonomy-add-new, 						/* Metabox catégorie	: lien pour ajouter */
 .metabox-prefs .columns-prefs, 			/* Options d'écran		: nombre de colonnes */
 .metabox-prefs .editor-expand,			/* Options d'écran		: éditeur plein écran */
+.metabox-prefs .view-mode,				/* Options d'écran		: mode d'affichage */
 .no-url-rewriting #edit-slug-buttons,	/* Permalien			: bouton modifier */
 /* catégories */
 .term-description-wrap, 		/* description */
