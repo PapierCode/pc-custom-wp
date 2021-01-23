@@ -14,7 +14,7 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 
 	function pc_admin_menu() {
 
-		global $menu, $submenu, $pc_custom_settings;
+		global $menu, $submenu, $settings_pc;
 
 		/*----------  Pour les utilisateurs non administrateur  ----------*/
 
@@ -37,7 +37,7 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 		unset($submenu['themes.php'][10]);						// sous-menu Menus
 
 		// en option la page Commentaires
-		if ( !isset($pc_custom_settings['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
+		if ( !isset($settings_pc['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
 
 		// déplace l'accès aux menus
 		$menu[58] = array(

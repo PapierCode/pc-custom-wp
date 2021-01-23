@@ -33,7 +33,7 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
 	if ( class_exists('PC_Add_Admin_Page') ) {
 
-		$pc_custom_settings_fields = array(
+		$settings_pc_fields = array(
 		    array(
 		        'title'     => 'Développement',
 		        'id'        => 'dev',
@@ -189,12 +189,12 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
 		/*----------  Filtre  ----------*/
 
-		$pc_custom_settings_fields = apply_filters( 'pc_filter_settings_pc_fields', $pc_custom_settings_fields );
+		$settings_pc_fields = apply_filters( 'pc_filter_settings_pc_fields', $settings_pc_fields );
 
 
 		/*----------  Création de la page  ----------*/
 		
-		$pc_custom_settings_page = new PC_Add_Admin_Page( 'Papier Codé réglages', '', 'PC Réglages', 'pc-settings', $pc_custom_settings_fields, 'admin', '81', 'dashicons-admin-settings' );
+		$settings_pc_page = new PC_Add_Admin_Page( 'Papier Codé réglages', '', 'PC Réglages', 'pc-settings', $settings_pc_fields, 'admin', '81', 'dashicons-admin-settings' );
 
 
 	} // FIN if class_exists('PC_Add_Admin_Page')

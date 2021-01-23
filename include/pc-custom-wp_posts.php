@@ -27,9 +27,9 @@ add_action( 'init', function() {
 });
 
 
-add_action( 'admin_menu', function () use($pc_custom_settings) {
+add_action( 'admin_menu', function () use($settings_pc) {
         
-    if ( !isset($pc_custom_settings['seo-rewrite-url']) ) {
+    if ( !isset($settings_pc['seo-rewrite-url']) ) {
         remove_meta_box( 'slugdiv', array('page'), 'normal' );      // identifiant   
     }
     remove_meta_box( 'pageparentdiv', array('page'), 'normal' );    // attributs   
@@ -39,7 +39,7 @@ add_action( 'admin_menu', function () use($pc_custom_settings) {
 
 /*----------  Sélection d'un modèle  ----------*/
 
-if ( isset($pc_custom_settings['page-template']) ) {
+if ( isset($settings_pc['page-template']) ) {
 
     add_action( 'admin_init', function() {
 
@@ -69,7 +69,7 @@ if ( isset($pc_custom_settings['page-template']) ) {
 
     }
 
-} // FIN if $pc_custom_settings['page-model']
+} // FIN if $settings_pc['page-model']
 
   
 /*=====  FIN Page  =====*/
@@ -78,7 +78,7 @@ if ( isset($pc_custom_settings['page-template']) ) {
 =            Enregistrement sans titre            =
 =================================================*/
   
-if ( !isset( $pc_custom_settings['seo-rewrite-url'] ) ) {
+if ( !isset( $settings_pc['seo-rewrite-url'] ) ) {
 
     add_action( 'save_post', 'pc_update_slug' );
 

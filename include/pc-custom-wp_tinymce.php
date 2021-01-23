@@ -33,7 +33,7 @@ add_action( 'admin_init', function() {
 
 /*----------  Bouton Medias  ----------*/
 
-if ( !isset( $pc_custom_settings['tinymce-medias'] ) ) {
+if ( !isset( $settings_pc['tinymce-medias'] ) ) {
 
    add_action('admin_head', function() { remove_action( 'media_buttons', 'media_buttons' ); });
 
@@ -42,15 +42,15 @@ if ( !isset( $pc_custom_settings['tinymce-medias'] ) ) {
 
 /*----------  Configuration par défaut  ----------*/
 
-add_filter( 'tiny_mce_before_init', function( $settings ) use( $pc_custom_settings ) {
+add_filter( 'tiny_mce_before_init', function( $settings ) use( $settings_pc ) {
 
     if ( $settings['selector'] == '#content') {
 
         // contenu des barres d'outils
-        $settings['toolbar1']                     = $pc_custom_settings['tinymce-toolbar1'];
-        $settings['toolbar2']                     = $pc_custom_settings['tinymce-toolbar2'];
+        $settings['toolbar1']                     = $settings_pc['tinymce-toolbar1'];
+        $settings['toolbar2']                     = $settings_pc['tinymce-toolbar2'];
         // menu type de block
-        $settings['block_formats']                = $pc_custom_settings['tinymce-block'];
+        $settings['block_formats']                = $settings_pc['tinymce-block'];
         // plugin visual block activation
         $settings['visualblocks_default_state']   = true;
         // copier comme texte activation

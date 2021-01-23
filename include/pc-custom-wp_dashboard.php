@@ -13,7 +13,7 @@
 =            Suppressions            =
 ====================================*/
 
-add_action( 'wp_dashboard_setup', function() use($pc_custom_settings) {
+add_action( 'wp_dashboard_setup', function() use($settings_pc) {
 
     // wordpress
     remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );   		// Right Now
@@ -24,7 +24,7 @@ add_action( 'wp_dashboard_setup', function() use($pc_custom_settings) {
     remove_meta_box( 'dashboard_incoming_links','dashboard', 'normal' );    // Incoming Links
 	remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );          // Plugins
 	
-    if ( !isset($pc_custom_settings['comments-menu']) ) {
+    if ( !isset($settings_pc['comments-menu']) ) {
         remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );     // activity
     }
 
@@ -54,9 +54,9 @@ add_action( 'wp_dashboard_setup', function() {
 
         echo '<p>Bienvenue dans l\'administration du site <strong>'.get_bloginfo('name').'</strong>.</p>';
         
-		global $pc_custom_settings;
+		global $settings_pc;
 		
-        if ( isset($pc_custom_settings['help-manuals']) ) {
+        if ( isset($settings_pc['help-manuals']) ) {
 
             echo '<div class="welcome-manuals"><p>Documentation à télécharger :</p>';
             echo '<ul>';
