@@ -183,6 +183,18 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'label'     => 'Afficher le menu'
 		            )
 		        )
+			),
+		    array(
+				'title'     => 'WPréformaté',
+		        'id'        => 'wpreform',
+		        'prefix'    => 'wpreform',
+		        'fields'    => array(
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'fullscreen',
+		                'label'     => 'Autoriser les images associées en pleine page'
+		            )
+		        )
 		    )
 		);
 		
