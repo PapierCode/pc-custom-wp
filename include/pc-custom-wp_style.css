@@ -361,3 +361,24 @@ a[href*="customize.php"] { display:none; }
 }
 
 /*=====  FIN Forms  ======*/
+
+/*======================================
+=            Matomo widgets            =
+======================================*/
+
+label[for="WP_Piwik-Widget-Browsers-hide"], #WP_Piwik-Widget-Browsers,
+label[for="WP_Piwik-Widget-BrowserDetails-hide"], #WP_Piwik-Widget-BrowserDetails,
+label[for="WP_Piwik-Widget-Screens-hide"], #WP_Piwik-Widget-Screens,
+label[for="WP_Piwik-Widget-Models-hide"], #WP_Piwik-Widget-Models,
+label[for="WP_Piwik-Widget-Systems-hide"], #WP_Piwik-Widget-Systems,
+label[for="WP_Piwik-Widget-SystemDetails-hide"], #WP_Piwik-Widget-SystemDetails,
+label[for="WP_Piwik-Widget-City-hide"], #WP_Piwik-Widget-City,
+label[for="WP_Piwik-Widget-Keywords-hide"], #WP_Piwik-Widget-Keywords,
+label[for="WP_Piwik-Widget-Plugins-hide"], #WP_Piwik-Widget-Plugins,
+label[for="WP_Piwik-Widget-Search-hide"], #WP_Piwik-Widget-Search
+{
+	display: none;
+}
+
+
+/*=====  FIN Matomo widgets  =====*/
