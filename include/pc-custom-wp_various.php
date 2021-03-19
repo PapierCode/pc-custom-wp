@@ -17,14 +17,12 @@ add_action( 'admin_bar_menu', 'pc_remove_adminbar_items', 999 );
 
 	function pc_remove_adminbar_items( $wp_admin_bar ) {
 
-		// pc_var($wp_admin_bar);
-		// return;
-
 	    $wp_admin_bar->remove_node( 'wp-logo' ); // logo WP
 	    $wp_admin_bar->remove_node( 'comments' ); // commentaires en attente
 	    $wp_admin_bar->remove_node( 'new-content' ); // créer
 	    $wp_admin_bar->remove_node( 'view' ); // créer
 	    $wp_admin_bar->remove_node( 'archive' ); // voir post
+	    $wp_admin_bar->remove_node( 'customize' ); // voir post
 
 	}
 
