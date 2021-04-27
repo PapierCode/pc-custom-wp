@@ -229,6 +229,7 @@ form[action="options.php"] p.submit,
 .metabox-prefs .editor-expand,			/* Options d'écran		: éditeur plein écran */
 .metabox-prefs .view-mode,				/* Options d'écran		: mode d'affichage */
 .no-url-rewriting #edit-slug-buttons,	/* Permalien			: bouton modifier */
+.wp-pp-notice,							/* Message				: aide pour les CGU */
 /* catégories */
 .term-description-wrap, 		/* description */
 /* menus */
