@@ -192,12 +192,17 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		            array(
 		                'type'      => 'checkbox',
 		                'label_for' => 'fullscreen',
-		                'label'     => 'Autoriser les images associées en pleine page'
+		                'label'     => 'Images associées en pleine page'
 					),
 		            array(
 		                'type'      => 'checkbox',
 		                'label_for' => 'breadcrumb',
-		                'label'     => 'Afficher le fil d\'ariane'
+		                'label' 	=> 'Fil d\'ariane',
+					),
+		            array(
+		                'type'      => 'checkbox',
+		                'label_for' => 'search',
+		                'label'     => 'Recherche'
 		            )
 		        )
 		    )
