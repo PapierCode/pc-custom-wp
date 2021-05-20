@@ -16,31 +16,38 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 
 		global $menu, $submenu, $settings_pc;
 
+
 		/*----------  Pour les utilisateurs non administrateur  ----------*/
 
-		if ( !current_user_can('administrator') ) {
+		if ( !current_user_can( 'administrator' ) ) {
 
-			remove_menu_page( 'tools.php' ); 	// menu Outils
-			remove_menu_page( 'themes.php' );	// menu Apparence
-			remove_menu_page( 'wppusher' );		// menu Wppusher
-
-			remove_submenu_page('upload.php', 'tiny-bulk-optimization'); // sous-menu Tinypng
+			// Outils
+			remove_menu_page( 'tools.php' );
 
 		}
 
 
 		/*----------  Tous les utilisateurs  ----------*/
 
-		remove_menu_page( 'edit.php' ); 						// menu Articles
-		remove_submenu_page('upload.php', 'media-new.php');		// sous-menu Ajouter un média
-		unset($submenu['themes.php'][6]);						// sous-menu Personnaliser
-		unset($submenu['themes.php'][10]);						// sous-menu Menus
+		// Articles
+		remove_menu_page( 'edit.php' ); 
 
-		// en option la page Commentaires
+		// Apparence	
+		remove_menu_page( 'themes.php' );
+		foreach ( $submenu['themes.php'] as $key => $submenu_item ) {
+			if ( 'themes.php' != $submenu_item[2] ) { unset( $submenu['themes.php'][$key] ); }
+		}
+
+		// Commentaires
 		if ( !isset($settings_pc['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
 
-		// déplace l'accès aux menus
-		$menu[58] = array(
+		// Médias, sous-menu Ajouter
+		remove_submenu_page('upload.php', 'media-new.php');
+		// Médias, icône
+		$menu[10][6] = 'dashicons-format-gallery';
+
+		// déplace l'item menus
+		$menu[60] = array(
 			'Menus',				// Nom
 			'edit_pages',			// droits
 			'nav-menus.php',		// cible
@@ -49,11 +56,18 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 			'menu-nav',				// id CSS
 			'dashicons-menu'		// icône
 		);
-
-		// nouvel icône pour Médias
-		$menu[10][6] = 'dashicons-format-gallery';
-
-	};
+		// déplace l'item thèmes
+		$menu[82] = array(
+			'Thèmes',				// Nom
+			'switch_themes',		// droits
+			'themes.php',			// cible
+			'',						// ??
+			'menu-top',				// classes CSS
+			'menu-themes',			// id CSS
+			'dashicons-art'			// icône
+		);
+		
+	}
 
 
 /*----------  Ajout de droits  ----------*/
@@ -63,10 +77,10 @@ add_action( 'admin_init', 'pc_admin_menu_capabilities', 999 );
 	function pc_admin_menu_capabilities() {
 		
 		// active le menu apparence pour l'accès aux menus
-		$role = get_role( 'editor' );
-		$role->add_cap( 'edit_theme_options' );
+		$editor = get_role( 'editor' );
+		$editor->add_cap( 'edit_theme_options' );
 
-	};
+	}
 
 
 /*=====  FIN Menu administration  =====*/
