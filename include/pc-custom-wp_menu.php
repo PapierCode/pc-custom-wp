@@ -21,7 +21,21 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 
 		if ( !current_user_can( 'administrator' ) ) {
 
-			// Outils
+			// Apparence	
+			remove_menu_page( 'themes.php' );
+
+			// Menus, déplacer l'item 
+			$menu[61] = array(
+				'Menus',				// Nom
+				'edit_pages',			// droits
+				'nav-menus.php',		// cible
+				'',						// ??
+				'menu-top menu-nav',	// classes CSS
+				'menu-nav',				// id CSS
+				'dashicons-menu'		// icône
+			);
+			
+			// Outils, supprimer l'item
 			remove_menu_page( 'tools.php' );
 
 		}
@@ -29,43 +43,18 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 
 		/*----------  Tous les utilisateurs  ----------*/
 
-		// Articles
+		// Articles, supprimer l'item
 		remove_menu_page( 'edit.php' ); 
 
-		// Apparence	
-		remove_menu_page( 'themes.php' );
-		foreach ( $submenu['themes.php'] as $key => $submenu_item ) {
-			if ( 'themes.php' != $submenu_item[2] ) { unset( $submenu['themes.php'][$key] ); }
+		// Commentaires, afficher si demandé
+		if ( !isset($settings_pc['comments-menu']) ) {
+			remove_menu_page( 'edit-comments.php' );
 		}
 
-		// Commentaires
-		if ( !isset($settings_pc['comments-menu']) ) { remove_menu_page( 'edit-comments.php' ); }
-
-		// Médias, sous-menu Ajouter
+		// Médias, supprimer le sous-menu "Ajouter"
 		remove_submenu_page('upload.php', 'media-new.php');
-		// Médias, icône
+		// Médias, modifier l'icône
 		$menu[10][6] = 'dashicons-format-gallery';
-
-		// déplace l'item menus
-		$menu[60] = array(
-			'Menus',				// Nom
-			'edit_pages',			// droits
-			'nav-menus.php',		// cible
-			'',						// ??
-			'menu-top menu-nav',	// classes CSS
-			'menu-nav',				// id CSS
-			'dashicons-menu'		// icône
-		);
-		// déplace l'item thèmes
-		$menu[82] = array(
-			'Thèmes',				// Nom
-			'switch_themes',		// droits
-			'themes.php',			// cible
-			'',						// ??
-			'menu-top',				// classes CSS
-			'menu-themes',			// id CSS
-			'dashicons-art'			// icône
-		);
 		
 	}
 
