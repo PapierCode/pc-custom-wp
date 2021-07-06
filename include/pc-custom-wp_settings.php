@@ -78,25 +78,20 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
-		        'title'     => 'Google',
-		        'id'        => 'google',
-		        'prefix'    => 'google',
+		        'title'     => 'hCaptcha',
+		        'id'        => 'hcaptcha',
+		        'prefix'    => 'hcaptcha',
 		        'fields'    => array(
 		            array(
 		                'type'      => 'text',
-		                'label_for' => 'analytics-code',
-		                'label'     => 'Analytics code de suivi'
-		            ),
-		            array(
-		                'type'      => 'text',
-		                'label_for' => 'recaptcha-site',
-		                'label'     => 'reCAPTCHA clé du site',
+		                'label_for' => 'site',
+		                'label'     => 'Clé du site',
 		                'css'		=> 'width:100%'
 		            ),
 		            array(
 		                'type'      => 'text',
-		                'label_for' => 'recaptcha-secret',
-		                'label'     => 'reCAPTCHA Clé secrète',
+		                'label_for' => 'secret',
+		                'label'     => 'Clé secrète',
 		                'css'		=> 'width:100%'
 		            )
 		        )
