@@ -22,6 +22,8 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 			'help-seo'				=> '<p>Ces deux champs sont utiles au référencement et s\'affichent dans les résultats des moteurs de recherche, par exemple dans Google : le <em>Titre</em> correspond à la ligne de texte bleue, la <em>Description</em> aux 2 lignes en noir en dessous. <br/><strong>Nombre de signes maximum conseillés : respectivement 70 et 200.</strong></p></p>',
 
 			'page-model'			=> 1,
+			'hcaptcha-site'			=> '',
+			'hcaptcha-secret'			=> '',
 		);
 
 		add_option( 'pc-settings-option', $options_values ,'', 'no');

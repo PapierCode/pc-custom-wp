@@ -72,24 +72,102 @@
 
 /*=====  FIN Dashboard  =====*/
 
-/*=====================================
-=            Custom fields            =
-=====================================*/
+/*===========================================
+=            Pages de paramètres            =
+===========================================*/
 
-/*----------  Aide  ----------*/
+#screen-meta-links .show-settings {
+	border-radius: 0;
+}
+#screen-meta-links .show-settings,
+.postbox {
+	border:none;
+}
 
-.pc-metabox-help {
-	padding:10px;
-	margin-top:12px;
-	border:1px dashed #aaa;
+.postbox table.form-table {
+	margin-top:20px;
+}
+
+.pc-settings table.form-table,
+#edittag table.form-table,
+#edittag h2,
+.edit-tag-actions,
+.pc-settings h2,
+.pc-metabox-help,
+.pc-settings table.form-table + p.submit {
+	max-width: 1000px;
+}
+.pc-settings .pc-metabox-help {
+	padding: 10px 15px 5px 15px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+.pc-metabox-help > :first-child {
+	margin-top:0;
 }
 .pc-metabox-help > * {
 	margin:5px 0 0;
 }
-.pc-metabox-help > :first-child {
-	margin:0;
+#edittag table.form-table,
+.pc-settings table.form-table {
+	margin-top:0;
+	background-color: #fff;
+	border-top:10px solid #fff;
+	border-bottom:10px solid #fff;
+}
+.pc-settings table.form-table + p.submit {
+	text-align: center;
+}
+#edittag table.form-table[role="presentation"] {
+	margin-top:30px;
 }
 
+#edittag h2,
+.pc-settings h2,
+#poststuff h2 {
+	font-size: 18px;
+	padding: 15px;
+}
+#edittag h2,
+.pc-settings h2,
+.postbox-header {
+	border-bottom: 1px solid #f0f0f1;
+}
+
+#edittag .form-table th,
+.pc-settings .form-table th {
+    padding: 15px;
+    width: 220px;
+}
+
+#edittag .form-table td,
+.pc-settings .form-table td {
+	padding: 15px;
+}
+
+#edittag h2,
+.pc-settings h2 {
+	margin:30px 0 0 0;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+#edittag h2:first-of-type,
+.pc-settings h2:first-of-type {
+	margin-top:30px;
+}
+
+#edittag table.form-table + p.submit,
+.pc-settings table.form-table + p.submit {
+	margin:40px 0 0 0;
+}
+
+
+
+/*=====  FIN Pages de paramètres  =====*/
+
+/*=====================================
+=            Custom fields            =
+=====================================*/
 
 /*----------  Aperçu image  ----------*/
 
@@ -132,6 +210,27 @@
 .pc-modal-link .query-results { top:80px!important; }
 
 
+/*----------  Repeater  ----------*/
+
+.pc-repeater-item { margin-bottom: 4px; }
+.pc-repeater-item span, .pc-repeater-btn-more {
+	padding: 4px;
+	border:1px solid #8c8f94;
+	background-color: #f6f7f7;
+	border-radius: 3px;
+}
+.pc-repeater-btn-more {
+	padding-left:10px;
+	padding-right:10px;
+}
+.pc-repeater-item span:hover, .pc-repeater-btn-more:hover {
+	background-color: #ddd;
+}
+.pc-repeater-btn-delete, .pc-repeater-btn-more { cursor: pointer ;}
+.pc-repeater-btn-move { cursor: move; } 
+
+
+
 /*=====  FIN Custom fields  =====*/
 
 /*=============================================
@@ -141,22 +240,8 @@
 /* tax : supprime limite largeur du contenu */
 #edittag { max-width: none ! important; }
 
- /* pages d'options */
-form[action="options.php"] h2,
-form[action="options.php"] p.submit,
- /* édition d'une taxonomie */
-.term-php form h2,
-.edit-tag-actions
-{
-	border-top: 3px dotted #ccc;
-	padding:30px 0 0 0;
-	margin-top:20px;
-}
-
 /* config & tax : position du btn submit */
-form[action="options.php"] p.submit,
-.edit-tag-actions
-{ text-align: center; }
+.edit-tag-actions { text-align: center; }
 
  /* page medias, alignement vertical */
 .upload-php .media-toolbar-secondary button { margin: 12px 10px 12px 0 !important; }
