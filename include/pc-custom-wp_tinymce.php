@@ -44,7 +44,7 @@ if ( !isset( $settings_pc['tinymce-medias'] ) ) {
 
 add_filter( 'tiny_mce_before_init', function( $settings ) use( $settings_pc ) {
 
-    if ( $settings['selector'] == '#content') {
+    if ( isset( $settings['selector'] ) && '#content' == $settings['selector'] ) {
 
         // contenu des barres d'outils
         $settings['toolbar1']                     = $settings_pc['tinymce-toolbar1'];
