@@ -37,18 +37,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 
 		$settings_pc_fields = array(
 		    array(
-		        'title'     => 'Développement',
-		        'id'        => 'dev',
-		        'prefix'    => 'dev',
-		        'fields'    => array(
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'class-examples',
-		                'label'     => 'Customs exemples'
-					)
-		        )
-		    ),
-		    array(
 		        'title'     => 'TinyMCE',
 		        'id'        => 'tinymce',
 		        'desc'      => 'Configuration par défaut.',
