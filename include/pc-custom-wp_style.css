@@ -190,11 +190,11 @@
 	background-color: #F1F1F1;
 	border:5px solid #F1F1F1;
 }
-.pc-pdf-preview {
+.pc-pdf-preview, .pc-file-preview {
 	display: inline-block;
 	text-decoration: none;
 	margin-bottom:5px;
-	background-color: #fff;
+	background-color: #F1F1F1;
 	padding:5px 15px 5px 10px;
 }
 .pc-media-remove { margin-left:5px!important; }
