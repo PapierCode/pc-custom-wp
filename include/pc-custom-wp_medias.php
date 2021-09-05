@@ -21,6 +21,7 @@ add_action( 'after_setup_theme', function() {
 
 });
 
+
 /*----------  Aide pour les champs d'images  ----------*/
 
 add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
@@ -41,3 +42,18 @@ add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
         return $fields;
 
     }
+
+/*----------  404 pour les pages de médias  ----------*/
+
+add_action( 'wp', 'pc_no_attachment_page' );
+
+	function pc_no_attachment_page() {
+
+		if ( is_attachment() ) {
+
+			global $wp_query;
+   			$wp_query->set_404();
+
+		}
+
+	}
