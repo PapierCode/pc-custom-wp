@@ -174,21 +174,18 @@
 .pc-media-preview {
 	display:flex;
 	flex-wrap: wrap;
-	margin:0 0 5px 0;
 }
 .pc-media-preview-item {
-	margin:0 5px 5px 0;
-	background-color: #fff;
+	margin:0 10px 10px 0;
 	width: 100px;
-	height: 100px;
+	height:100px;
+	background-position: center;
+	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
-	background-size:contain;
-	border:5px solid #fff;
 }
-.postbox .pc-media-preview-item {
-	background-color: #F1F1F1;
-	border:5px solid #F1F1F1;
+.pc-media-preview-item img {
+	width: 100px;
+	height: auto;
 }
 .pc-pdf-preview, .pc-file-preview {
 	display: inline-block;
