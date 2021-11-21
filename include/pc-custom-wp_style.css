@@ -187,6 +187,9 @@
 	width: 100px;
 	height: auto;
 }
+.pc-audio-preview {
+	margin-bottom:10px;
+}
 .pc-pdf-preview, .pc-file-preview {
 	display: inline-block;
 	text-decoration: none;
