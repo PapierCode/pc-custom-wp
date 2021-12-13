@@ -281,7 +281,6 @@
 .media-modal #alt-text-description, /* aide champ texte alternatif */
 .media-modal [data-setting="title"], /* champ titre */
 .media-modal [data-setting="description"], /* champ description */
-.media-modal [data-setting="url"], /* champ description */
 
 .media-modal .attachment-display-settings .align, /* select alignement */
 .media-modal .attachment-display-settings label[for="attachment-display-settings-link-to"], /* select alignement */
