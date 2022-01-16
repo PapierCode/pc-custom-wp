@@ -99,6 +99,19 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
+		        'title'     => 'Google',
+		        'id'        => 'google',
+		        'prefix'    => 'google',
+		        'fields'    => array(
+					array(
+		                'type'      => 'text',
+		                'label_for' => 'map-api-key',
+		                'label'     => 'Clé API Map',
+						'css'		=> 'width:100%'
+		            ),
+		        )
+		    ),
+		    array(
 		        'title'     => 'Pages',
 		        'id'        => 'page',
 		        'prefix'    => 'page',
