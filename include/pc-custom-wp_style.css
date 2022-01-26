@@ -97,6 +97,7 @@
 .pc-settings table.form-table + p.submit {
 	max-width: 1000px;
 }
+.term-php .pc-metabox-help,
 .pc-settings .pc-metabox-help {
 	padding: 10px 15px 5px 15px;
 	background-color: #fff;

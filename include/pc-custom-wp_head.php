@@ -80,12 +80,12 @@ if ( is_admin() ) {
 
     /*----------  CSS Block Editor  ----------*/
 
-    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles', 10 );
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
         
 
     /*----------  Tags attributs  ----------*/
     
-    add_filter('script_loader_tag', 'pc_remove_tag_js_attribut', 10, 3);
+    add_filter( 'script_loader_tag', 'pc_remove_tag_js_attribut', 10, 3);
 
         function pc_remove_tag_js_attribut( $tag, $handle, $src ) {
             $tag = str_replace( "type='text/javascript' ", '', $tag );
