@@ -81,6 +81,12 @@ if ( is_admin() ) {
     /*----------  CSS Block Editor  ----------*/
 
 	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+
+	add_action( 'wp_enqueue_scripts', 'remove_block_css', 666 );
+
+		function remove_block_css() {
+			wp_dequeue_style( 'wp-block-library' ); 
+		}
         
 
     /*----------  Tags attributs  ----------*/
