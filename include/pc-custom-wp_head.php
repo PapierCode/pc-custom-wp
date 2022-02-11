@@ -30,10 +30,11 @@ if ( is_admin() ) {
 	
 	add_filter( 'show_admin_bar', 'pc_remove_admin_bar' );
 
-		function pc_remove_admin_bar() {
+		function pc_remove_admin_bar( $show ) {
 
-			if ( !current_user_can('administrator') ) { return FALSE; }
-			else { return TRUE; }
+			if ( !current_user_can('administrator') ) { $show = false; }
+			
+			return $show;
 
 		}
 
