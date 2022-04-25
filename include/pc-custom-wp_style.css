@@ -331,8 +331,11 @@
 .user-comment-shortcuts-wrap,
 .user-admin-bar-front-wrap,
 .user-url-wrap,
+.user-nickname-wrap,
+.user-display-name-wrap,
 #your-profile h2:nth-of-type(4),
-#your-profile table:nth-of-type(4)
+#your-profile table:nth-of-type(4),
+.application-passwords
 { display:none !important; }
 
 
