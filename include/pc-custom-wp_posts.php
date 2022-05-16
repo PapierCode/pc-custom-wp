@@ -80,14 +80,14 @@ if ( isset($settings_pc['page-template']) ) {
   
 if ( !isset( $settings_pc['seo-rewrite-url'] ) ) {
 
-    add_action( 'save_post', 'pc_update_slug' );
+    add_action( 'save_post', 'pc_update_slug', 10, 2 );
 
-        function pc_update_slug( $post_id ) {
+        function pc_update_slug( $post_id, $post ) {
 
-			if ( wp_is_post_revision( $post_id ) || get_post_type( $post_id ) == 'nav_menu_item' || get_post_type( $post_id ) == 'attachment' ) { return; }
+			if ( wp_is_post_revision( $post_id ) || 'nav_menu_item' == $post->post_type || 'attachment' == $post->post_type || str_contains( $post->post_type, 'acf' ) ) { return; }
 
 			// prévention contre une boucle infinie 1/2
-			remove_action( 'save_post', 'pc_update_slug' );
+			remove_action( 'save_post', 'pc_update_slug', 10, 2 );
 
 			$post_update_args = array( 'ID' => $post_id );
 			
@@ -103,7 +103,7 @@ if ( !isset( $settings_pc['seo-rewrite-url'] ) ) {
 			wp_update_post( $post_update_args );
 
 			// prévention contre une boucle infinie 2/2
-			add_action( 'save_post', 'pc_update_slug' );
+			add_action( 'save_post', 'pc_update_slug', 10, 2 );
 				
         }
 
