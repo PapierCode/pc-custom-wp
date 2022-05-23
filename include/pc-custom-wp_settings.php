@@ -42,11 +42,11 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        'desc'      => 'Configuration par défaut.',
 		        'prefix'    => 'tinymce',
 		        'fields'    => array(
-						array(
-							'type'      => 'checkbox',
-							'label_for' => 'medias',
-							'label'     => 'Ajouter des médias'
-						),
+					array(
+						'type'      => 'checkbox',
+						'label_for' => 'medias',
+						'label'     => 'Ajouter des médias'
+					),
 		            array(
 		                'type'      => 'text',
 		                'label_for' => 'toolbar1',
@@ -65,6 +65,18 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		                'label'     => 'Type de blocs',
 		                'css'       => 'width:100%'
 		            )
+		        )
+		    ),
+		    array(
+		        'title'     => 'Block Editor',
+		        'id'        => 'blockeditor',
+		        'prefix'    => 'blockeditor',
+		        'fields'    => array(
+					array(
+						'type'      => 'checkbox',
+						'label_for' => 'disabled',
+						'label'     => 'Désactivé'
+					)
 		        )
 		    ),
 		    array(
