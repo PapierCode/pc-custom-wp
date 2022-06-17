@@ -154,23 +154,6 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		        )
 		    ),
 		    array(
-				'title'     => 'Actualités (compatibilité)',
-		        'id'        => 'news',
-		        'prefix'    => 'news',
-		        'fields'    => array(
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'active',
-		                'label'     => 'Actualités'
-		            ),
-		            array(
-		                'type'      => 'checkbox',
-		                'label_for' => 'tax',
-		                'label'     => 'Catégories'
-		            )
-		        )
-		    ),
-		    array(
 				'title'     => 'SEO',
 		        'id'        => 'seo',
 		        'prefix'    => 'seo',

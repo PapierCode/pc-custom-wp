@@ -211,25 +211,94 @@
 .pc-modal-link .query-results { top:80px!important; }
 
 
-/*----------  Repeater  ----------*/
+/*----------  Repeater & Posts Selector  ----------*/
 
-.pc-repeater-item { margin-bottom: 4px; }
-.pc-repeater-item span, .pc-repeater-btn-more {
+/* Communs */
+
+.pc-repeater-btn-trash, .pc-repeater-btn-move {
 	padding: 4px;
 	border:1px solid #8c8f94;
 	background-color: #f6f7f7;
 	border-radius: 3px;
 }
-.pc-repeater-btn-more {
-	padding-left:10px;
-	padding-right:10px;
+.pc-repeater-btn-trash {
+	cursor: pointer;
 }
-.pc-repeater-item span:hover, .pc-repeater-btn-more:hover {
+.pc-repeater-btn-move {
+	cursor: move;
+}
+.pc-repeater-btn-trash:hover, .pc-repeater-btn-move:hover {
 	background-color: #ddd;
 }
-.pc-repeater-btn-delete, .pc-repeater-btn-more { cursor: pointer ;}
-.pc-repeater-btn-move { cursor: move; } 
 
+/* Posts Selector */
+
+.posts-selector-item {
+	margin-bottom:5px;
+}
+.posts-selector-item span {
+	margin-left:5px;
+}
+
+/* Repeater */
+
+.pc-repeater-item {
+	display:flex;
+	align-items: flex-start;
+	text-align: left;
+	margin-bottom:10px;
+}
+.pc-repeater-fields {
+	min-height: 80px;
+	padding:5px 10px;
+	flex-grow: 1;
+	background-color: #f0f0f1;
+}
+.postbox .pc-repeater-fields { /* Métaboxe + Block Editor */
+	background-color: #fff;
+}
+.pc-repeater-field {
+	display: flex;
+}
+.pc-repeater-field > * {
+	padding:10px;
+}
+.pc-repeater-field + .pc-repeater-field {
+	border-top:1px solid #fff;
+}
+.pc-repeater-field label {
+	width: 150px;
+	font-weight: 600;
+}
+.pc-repeater-field > div {
+	flex-grow: 1;
+}
+.pc-repeater-type_img {
+	display: flex;
+	align-items: flex-start;
+}
+.pc-repeater-type_img .pc-media-preview-item {
+	margin-bottom: 0;
+}
+
+.pc-repeater-actions {
+	display: flex;
+	flex-direction: column;
+	padding:10px 0 10px 10px;
+}
+.pc-repeater-actions span:nth-child(n+2) {
+	margin-top: 10px;
+}
+
+
+.pc-repeater-src {
+	display: none;
+}
+.pc-repeater-placeholder {
+	height: 100px;
+	border:2px dashed #ccc;
+	margin-bottom: 10px;
+}
 
 
 /*=====  FIN Custom fields  =====*/
