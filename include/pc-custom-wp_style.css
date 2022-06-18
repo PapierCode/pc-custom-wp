@@ -166,6 +166,21 @@
 
 /*=====  FIN Pages de paramètres  =====*/
 
+/*======================================
+=            Liste de posts            =
+======================================*/
+
+table.wp-list-table .column-thumb {
+    width: 50px;
+}
+table.wp-list-table .column-thumb img {
+    max-width: 40px;
+    height: auto;
+}
+
+
+/*=====  FIN Liste de posts  =====*/
+
 /*=====================================
 =            Custom fields            =
 =====================================*/
@@ -422,6 +437,13 @@ a[href*="customize.php"] { display:none; }
 .mce-visualblocks div {
 	padding:0 !important;
 	background-image: none !important;
+}
+
+/*----------  Intro  ----------*/
+
+.wysi-intro {
+	text-transform: uppercase;
+	font-weight: 700;
 }
 
 /*----------  Images  ----------*/
