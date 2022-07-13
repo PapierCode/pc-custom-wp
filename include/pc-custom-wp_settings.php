@@ -177,6 +177,63 @@ add_action('plugins_loaded', function() { // en attente du plugin [PC] Tools
 		            )
 		        )
 			),
+			array(
+				'title'     => 'SMTP',
+				'id'        => 'smtp',
+				'desc'		=> '<p>Si activé, tous les champs sont obligatoires.</p>',
+				'prefix'    => 'smtp',
+				'fields'    => array(
+					array(
+						'type'      => 'checkbox',
+						'label_for' => 'active',
+						'label'     => 'Activé'
+					),
+					array(
+						'type'      => 'text',
+						'label_for' => 'server',
+						'label'     => 'Serveur',
+						'css'       => 'width:100%'
+					),
+					array(
+						'type'      => 'select',
+						'label_for' => 'type',
+						'label'     => 'Authentification : type',
+						'options'   => array(
+							'ssl' => 'ssl',
+							'tls' => 'tls'
+						)
+					),
+					array(
+						'type'      => 'number',
+						'label_for' => 'port',
+						'label'     => 'Authentification : port'
+					),
+					array(
+						'type'      => 'text',
+						'label_for' => 'username',
+						'label'     => 'Authentification : utilisateur',
+						'css'       => 'width:100%'
+					),
+					array(
+						'type'      => 'text',
+						'label_for' => 'password',
+						'label'     => 'Authentification : mot de passe',
+						'css'       => 'width:100%'
+					),
+					array(
+						'type'      => 'email',
+						'label_for' => 'fromemail',
+						'label'     => 'Expéditeur : e-mail',
+						'css'       => 'width:100%'
+					),
+					array(
+						'type'      => 'text',
+						'label_for' => 'fromname',
+						'label'     => 'Expéditeur : nom',
+						'css'       => 'width:100%'
+					),
+				)
+			),
 		    array(
 				'title'     => 'WPréformaté',
 		        'id'        => 'wpreform',

@@ -22,13 +22,13 @@ add_action( 'after_setup_theme', function() {
 });
 
 
-/*----------  Aide pour les champs d'images  ----------*/
+/*----------  Champs médias  ----------*/
 
 add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
 
     function pc_help_img_fields( $fields, $post ) {
 
-		if ( 'image' === substr( $post->post_mime_type, 0, 5 ) ) {
+		if ( str_contains( $post->post_mime_type, 'image' ) ) {
 
 			$fields['pc_help'] = array(
 				'label' => 'Aide',
@@ -37,6 +37,10 @@ add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
 				'show_in_edit' => true,
 			);
 
+		}
+
+		if ( str_contains( $post->post_mime_type, 'pdf' ) ) {
+			
 		}
 
         return $fields;
