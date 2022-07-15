@@ -38,6 +38,14 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 			// Outils, supprimer l'item
 			remove_menu_page( 'tools.php' );
 
+			// tinypng plugin
+			if ( is_plugin_active( 'tiny-compress-images/tiny-compress-images.php' ) ) {
+				foreach( $submenu['upload.php'] as $index => $item ) {
+					// sous menu "optimisation en masse"
+					if ( in_array( 'tiny-bulk-optimization', $item ) ) {  unset( $submenu['upload.php'][$index] ); }
+				}
+			}
+
 		}
 
 
