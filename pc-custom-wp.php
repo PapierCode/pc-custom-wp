@@ -3,7 +3,7 @@
 Plugin Name: [PC] Custom WP
 Plugin URI: www.papier-code.fr
 Description: Customisations admin & public
-Version: 1.5.10
+Version: 1.5.11
 Author: Papier Codé
 */
 
@@ -18,7 +18,8 @@ $settings_pc = get_option( 'pc-settings-option' );
 
 add_action( 'admin_enqueue_scripts', function() {
 	
-	wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).'include/pc-custom-wp_style.css' );
+	$css_admin_path = 'include/pc-custom-wp_style.css';
+	wp_enqueue_style( 'pc-custom-wp-css', plugin_dir_url( __FILE__ ).$css_admin_path, null, filemtime(plugin_dir_path( __FILE__ ).$css_admin_path) );
 
 });
 
