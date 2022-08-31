@@ -269,7 +269,7 @@ table.wp-list-table .column-thumb img {
 	flex-grow: 1;
 	background-color: #f0f0f1;
 }
-.postbox .pc-repeater-fields { /* Métaboxe + Block Editor */
+.block-editor-page .pc-repeater-fields { /* Métaboxe + Block Editor */
 	background-color: #fff;
 }
 .pc-repeater-field {
