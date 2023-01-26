@@ -28,12 +28,7 @@ add_action( 'init', function() {
 
 
 add_action( 'admin_menu', function () use($settings_pc) {
-        
-    if ( !isset($settings_pc['seo-rewrite-url']) ) {
-        remove_meta_box( 'slugdiv', array('page'), 'normal' );      // identifiant   
-    }
     remove_meta_box( 'pageparentdiv', array('page'), 'normal' );    // attributs   
-
 });
 
 
@@ -77,37 +72,33 @@ if ( isset($settings_pc['page-template']) ) {
 /*=================================================
 =            Enregistrement sans titre            =
 =================================================*/
-  
-if ( !isset( $settings_pc['seo-rewrite-url'] ) ) {
 
-    add_action( 'save_post', 'pc_update_slug', 10, 2 );
+add_action( 'save_post', 'pc_save_post_with_no_title', 10, 2 );
 
-        function pc_update_slug( $post_id, $post ) {
+	function pc_save_post_with_no_title( $post_id, $post ) {
 
-			if ( wp_is_post_revision( $post_id ) || 'nav_menu_item' == $post->post_type || 'attachment' == $post->post_type || str_contains( $post->post_type, 'acf' ) ) { return; }
+		if ( wp_is_post_revision( $post_id ) || 'nav_menu_item' == $post->post_type || 'attachment' == $post->post_type || str_contains( $post->post_type, 'acf' ) ) { return; }
+		
+		if ( trim( get_the_title( $post_id) ) == '' ) {
 
 			// prévention contre une boucle infinie 1/2
 			remove_action( 'save_post', 'pc_update_slug', 10, 2 );
 
-			$post_update_args = array( 'ID' => $post_id );
-			
-			$post_title = get_the_title( $post_id) ;
-			if ( $post_title != '' ) {
-				$post_update_args['post_name'] = sanitize_title( $post_title );
-			} else {
-				$post_update_args['post_name'] = 'sans-titre-'.$post_id;
-				$post_update_args['post_title'] = '(sans titre)';
-			}
+			$post_update_args = array(
+				'ID' => $post_id,
+				'post_name' => 'sans-titre-'.$post_id,
+				'post_title' => '(sans titre)'
+			);
 
 			// mise à jour post
 			wp_update_post( $post_update_args );
 
 			// prévention contre une boucle infinie 2/2
 			add_action( 'save_post', 'pc_update_slug', 10, 2 );
-				
-        }
-
-}
+		
+		}
+			
+	}
 
 
 /*=====  FIN Enregistrement sans titre  =====*/
