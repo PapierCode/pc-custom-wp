@@ -25,7 +25,7 @@ add_action( 'admin_menu', 'pc_admin_menu', 999 );
 			remove_menu_page( 'themes.php' );
 
 			// Menus, déplacer l'item 
-			$menu[61] = array(
+			$menu[59] = array(
 				'Menus',				// Nom
 				'edit_pages',			// droits
 				'nav-menus.php',		// cible
