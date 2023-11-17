@@ -371,6 +371,7 @@ table.wp-list-table .column-thumb img {
 .media-modal #menu-item-video-playlist, /* btn ajouter une playlist vidéo */
 .media-modal #menu-item-embed, /* btn ajouter à partir d'une adresse web */
 
+.media-modal .uploaded-to, /* téléversé dans */
 .media-modal #alt-text-description, /* aide champ texte alternatif */
 .media-modal [data-setting="title"], /* champ titre */
 .media-modal [data-setting="description"], /* champ description */
