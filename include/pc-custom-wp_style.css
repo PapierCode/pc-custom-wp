@@ -351,9 +351,17 @@ table.wp-list-table .column-thumb img {
 
 /*----------  Medias page  ----------*/
 
-.upload-php .view-switch a,	/* changement de vue */
+.wp_attachment_details #alt-text-description, /* alt attr help */
+.wp_attachment_details .attachment-content-description, /* description label */
+.wp_attachment_details #wp-attachment_content-wrap, /* description label */
+.media-types-required-info, /* mention  champs obligatoires */
+#misc-publishing-actions .misc-pub-uploadedto,
+#attachment-filter,	/* type de media */
 #media-attachment-filters	/* type de media */
 { display:none !important; }
+
+.wp_attachment_details  #attachment_caption { max-width: 500px; }
+
 
 
 /*----------  Medias modal  ----------*/

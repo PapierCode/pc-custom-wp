@@ -61,3 +61,24 @@ add_action( 'wp', 'pc_no_attachment_page' );
 		}
 
 	}
+
+/*----------  Post list  ----------*/
+
+add_filter( 'manage_media_columns', 'pc_edit_manage_media_columns' );
+
+	function pc_edit_manage_media_columns( $columns ) {
+		
+		unset( $columns['parent'] );
+		unset( $columns['comments'] );
+		return $columns;
+
+	}
+
+add_filter( 'media_row_actions', 'pc_edit_media_row_action' );
+
+	function pc_edit_media_row_action( $actions ) {
+
+		unset( $actions['view'] );
+		return $actions;
+
+	}
