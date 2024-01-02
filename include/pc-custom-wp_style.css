@@ -373,7 +373,6 @@ table.wp-list-table .column-thumb img {
 
 .media-modal .uploaded-to, /* téléversé dans */
 .media-modal #alt-text-description, /* aide champ texte alternatif */
-.media-modal [data-setting="title"], /* champ titre */
 .media-modal [data-setting="description"], /* champ description */
 
 .media-modal .attachment-display-settings .align, /* select alignement */

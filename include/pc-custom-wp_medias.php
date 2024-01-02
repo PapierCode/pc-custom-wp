@@ -33,7 +33,7 @@ add_filter( 'attachment_fields_to_edit', 'pc_help_img_fields', 10, 2 );
 			$fields['pc_help'] = array(
 				'label' => 'Aide',
 				'input' => 'html',
-				'html' => '<p style="margin-top:6px"><strong>Le texte alternatif : </strong>pour le référencement et l\'accessibilité, décrivez l\'image en quelques mots.<br/><strong>La légende</strong>, s\'affiche sous l\'image dans 2 cas :<br/>- dans une galerie d\'images en plein écran,<br/>- lorsque l\'image est insérée dans le contenu de la page.</p>',
+				'html' => '<p style="margin-top:6px"><strong>Le titre est utilisé pour l\'organisation des médias dans l\'administration.<br/> Le texte alternatif pour le référencement et l\'accessibilité</strong>, décrivez l\'image en quelques mots.<br/><strong>La légende s\'affiche sous l\'image</strong> lorsque celle-ci est insérée dans le contenu d\'une page ou via une galerie.</p>',
 				'show_in_edit' => true,
 			);
 
