@@ -82,7 +82,7 @@ add_action( 'save_post', 'pc_save_post_with_no_title', 10, 2 );
 		if ( trim( get_the_title( $post_id) ) == '' ) {
 
 			// prévention contre une boucle infinie 1/2
-			remove_action( 'save_post', 'pc_update_slug', 10, 2 );
+			remove_action( 'save_post', 'pc_save_post_with_no_title', 10, 2 );
 
 			$post_update_args = array(
 				'ID' => $post_id,
@@ -94,7 +94,7 @@ add_action( 'save_post', 'pc_save_post_with_no_title', 10, 2 );
 			wp_update_post( $post_update_args );
 
 			// prévention contre une boucle infinie 2/2
-			add_action( 'save_post', 'pc_update_slug', 10, 2 );
+			add_action( 'save_post', 'pc_save_post_with_no_title', 10, 2 );
 		
 		}
 			
