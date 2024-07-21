@@ -569,3 +569,15 @@ label[for="WP_Piwik-Widget-Search-hide"], #WP_Piwik-Widget-Search
 
 
 /*=====  FIN Matomo widgets  =====*/
+
+/*====================================
+=            Block Editor            =
+====================================*/
+
+.editor-document-bar {
+    display: none;
+}
+
+
+
+/*=====  FIN Block Editor  =====*/
