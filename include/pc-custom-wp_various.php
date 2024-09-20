@@ -23,6 +23,7 @@ add_action( 'admin_bar_menu', 'pc_remove_adminbar_items', 999 );
 	    $wp_admin_bar->remove_node( 'view' ); // créer
 	    $wp_admin_bar->remove_node( 'archive' ); // voir post
 	    $wp_admin_bar->remove_node( 'customize' ); // voir post
+	    $wp_admin_bar->remove_node( 'woocommerce-site-visibility-badge' ); // woo
 
 	}
 
