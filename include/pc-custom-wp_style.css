@@ -574,9 +574,17 @@ label[for="WP_Piwik-Widget-Search-hide"], #WP_Piwik-Widget-Search
 =            Block Editor            =
 ====================================*/
 
-.editor-document-bar {
-    display: none;
-}
+.block-editor-inserter__tablist-and-close-button, /* onglets colonne ajout */
+.metabox-location-side .handle-order-higher, /* btn deplacer la métaboxe */
+.metabox-location-side .handle-order-lower, /* btn deplacer la métaboxe */
+.editor-document-bar, /* barre de recherche fonctionnalités */
+a[href="https://fr.wordpress.org/support/article/wordpress-editor/"], /* aide externe */
+a[href*="site-editor"], /* lien vers les compositions de blocs et autres ? */
+.editor-preview-dropdown, /* aperçu responsive */
+.block-editor-inserter__tips, /* astuces dans le menu des blocs */
+.typography-block-support-panel, /* box typographie */
+.acf-empty-block-fields /* message bloc sans champ (colonne droite) */
+{ display: none !important; }
 
 
 
