@@ -82,6 +82,7 @@ if ( is_admin() ) {
 
     /*----------  CSS Block Editor  ----------*/
 
+	add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 
 	add_action( 'wp_enqueue_scripts', 'remove_block_css', 666 );
@@ -99,6 +100,12 @@ if ( is_admin() ) {
             $tag = str_replace( "type='text/javascript' ", '', $tag );
             return str_replace( "'", '"', $tag );
         }
+
+	/*----------  Divers  ----------*/
+
+	add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' );
+	
+	
 
 }
 
