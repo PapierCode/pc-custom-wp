@@ -29,6 +29,13 @@ function pc_mail_smtp_settings( $phpmailer ) {
 
 		$phpmailer->From = $settings_pc['smtp-fromemail'];
 		$phpmailer->FromName = $settings_pc['smtp-fromname'];
+		$phpmailer->Sender = $phpmailer->From;
+
+		if ( isset( $_POST['contact-mail'] ) && is_email( trim($_POST['contact-mail']) ) ) {
+			$phpmailer->addReplyTo( trim($_POST['contact-mail']) );
+		}
+
+		// $phpmailer->SMTPDebug = PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
 
 	}
 
